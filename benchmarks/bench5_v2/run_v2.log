@@ -1,0 +1,111 @@
+P1 #0 planted          ARCS   YES     0.145s 
+P1 #0 planted          CPSAT  FAIL   63.074s ('time',)
+P1 #1 planted          ARCS   YES     0.164s 
+P1 #1 planted          CPSAT  FAIL   60.011s ('time',)
+P1 #2 planted          ARCS   YES     0.146s 
+P1 #2 planted          CPSAT  FAIL   60.004s ('time',)
+P1 #3 planted          ARCS   YES     0.181s 
+P1 #3 planted          CPSAT  FAIL   60.007s ('time',)
+P1 #4 planted          ARCS   YES     0.147s 
+P1 #4 planted          CPSAT  FAIL   60.019s ('time',)
+P1 #5 planted          ARCS   YES     0.178s 
+P1 #5 planted          CPSAT  FAIL   60.009s ('time',)
+P1 #6 impossible-C1    ARCS   NO      0.433s (2, 1)
+P1 #6 impossible-C1    CPSAT  NO      0.006s (-1, -1)
+P1 #7 impossible-C1    ARCS   NO      0.337s (2, 1)
+P1 #7 impossible-C1    CPSAT  NO      0.005s (-1, -1)
+P2 #0 planted R=1e+08  ARCS   YES     0.167s 
+P2 #0 planted R=1e+08  BNB    FAIL    0.044s ('tries',)
+P2 #0 planted R=1e+08  CPSAT  FAIL   60.012s ('time',)
+P2 #1 planted R=1e+08  ARCS   YES     0.180s 
+P2 #1 planted R=1e+08  BNB    FAIL    0.025s ('tries',)
+P2 #1 planted R=1e+08  CPSAT  FAIL   60.053s ('time',)
+P2 #2 planted R=1e+08  ARCS   YES     0.215s 
+P2 #2 planted R=1e+08  BNB    YES     0.025s 
+P2 #2 planted R=1e+08  CPSAT  FAIL   60.007s ('time',)
+P2 #3 planted R=1e+10  ARCS   YES     0.189s 
+P2 #3 planted R=1e+10  BNB    FAIL    0.025s ('tries',)
+P2 #3 planted R=1e+10  CPSAT  FAIL   60.007s ('time',)
+P2 #4 planted R=1e+10  ARCS   YES     0.251s 
+P2 #4 planted R=1e+10  BNB    FAIL    0.032s ('tries',)
+P2 #4 planted R=1e+10  CPSAT  FAIL   60.010s ('time',)
+P2 #5 planted R=1e+10  ARCS   YES     0.186s 
+P2 #5 planted R=1e+10  BNB    FAIL    0.028s ('tries',)
+P2 #5 planted R=1e+10  CPSAT  FAIL   60.009s ('time',)
+P3 #0 partition        ARCS   YES     0.066s 
+P3 #0 partition        KK     FAIL    0.000s ('diff=22',)
+P3 #0 partition        CKK    YES     0.024s 
+P3 #0 partition        CPSAT  FAIL   60.004s ('time',)
+P3 #1 partition        ARCS   YES     0.062s 
+P3 #1 partition        KK     FAIL    0.000s ('diff=2',)
+P3 #1 partition        CKK    YES     0.002s 
+P3 #1 partition        CPSAT  FAIL   60.004s ('time',)
+P3 #2 partition        ARCS   YES     0.066s 
+P3 #2 partition        KK     FAIL    0.000s ('diff=12',)
+P3 #2 partition        CKK    YES     0.007s 
+P3 #2 partition        CPSAT  FAIL   60.001s ('time',)
+P3 #3 partition        ARCS   YES     0.056s 
+P3 #3 partition        KK     FAIL    0.000s ('diff=6',)
+P3 #3 partition        CKK    YES     0.002s 
+P3 #3 partition        CPSAT  FAIL   60.005s ('time',)
+P3 #4 partition        ARCS   YES     0.050s 
+P3 #4 partition        KK     FAIL    0.000s ('diff=14',)
+P3 #4 partition        CKK    YES     0.006s 
+P3 #4 partition        CPSAT  FAIL   60.004s ('time',)
+P3 #5 partition        ARCS   YES     0.062s 
+P3 #5 partition        KK     FAIL    0.000s ('diff=40',)
+P3 #5 partition        CKK    YES     0.016s 
+P3 #5 partition        CPSAT  FAIL   60.004s ('time',)
+P5 #0 planted          ARCS   YES     0.090s 
+P5 #0 planted          QFIX   FAIL    0.074s ('endgame',)
+P5 #0 planted          NOARC  FAIL    0.035s ('endgame',)
+P5 #0 planted          CPSAT  FAIL   60.006s ('time',)
+P5 #1 planted          ARCS   YES     0.047s 
+P5 #1 planted          QFIX   YES     0.065s 
+P5 #1 planted          NOARC  YES     0.009s 
+P5 #1 planted          CPSAT  FAIL   60.005s ('time',)
+P5 #2 planted          ARCS   YES     0.076s 
+P5 #2 planted          QFIX   FAIL    0.100s ('endgame',)
+P5 #2 planted          NOARC  FAIL    0.032s ('endgame',)
+P5 #2 planted          CPSAT  FAIL   60.003s ('time',)
+P5 #3 planted          ARCS   YES     0.081s 
+P5 #3 planted          QFIX   FAIL    0.121s ('endgame',)
+P5 #3 planted          NOARC  FAIL    0.048s ('endgame',)
+P5 #3 planted          CPSAT  FAIL   59.999s ('time',)
+P5 #4 planted          ARCS   YES     0.044s 
+P5 #4 planted          QFIX   FAIL    0.082s ('endgame',)
+P5 #4 planted          NOARC  FAIL    0.031s ('endgame',)
+P5 #4 planted          CPSAT  FAIL   60.003s ('time',)
+P5 #5 planted          ARCS   YES     0.043s 
+P5 #5 planted          QFIX   FAIL    0.086s ('endgame',)
+P5 #5 planted          NOARC  FAIL    0.043s ('endgame',)
+P5 #5 planted          CPSAT  FAIL   60.001s ('time',)
+P5 #6 impossible       ARCS   NO      0.050s (1009, 333)
+P5 #6 impossible       QFIX   FAIL    0.073s ('endgame',)
+P5 #6 impossible       NOARC  FAIL    0.039s ('endgame',)
+P5 #6 impossible       CPSAT  FAIL   60.005s ('time',)
+P5 #7 impossible       ARCS   NO      0.091s (1009, 270)
+P5 #7 impossible       QFIX   FAIL    0.142s ('endgame',)
+P5 #7 impossible       NOARC  FAIL    0.060s ('endgame',)
+P5 #7 impossible       CPSAT  FAIL   60.005s ('time',)
+P5 #8 impossible       ARCS   NO      0.060s (1009, 39)
+P5 #8 impossible       QFIX   FAIL    0.102s ('endgame',)
+P5 #8 impossible       NOARC  FAIL    0.045s ('endgame',)
+P5 #8 impossible       CPSAT  FAIL   60.003s ('time',)
+P5 #9 impossible       ARCS   NO      0.095s (1009, 574)
+P5 #9 impossible       QFIX   FAIL    0.109s ('endgame',)
+P5 #9 impossible       NOARC  FAIL    0.036s ('endgame',)
+P5 #9 impossible       CPSAT  FAIL   60.004s ('time',)
+P5 #10 impossible       ARCS   NO      0.051s (1009, 648)
+P5 #10 impossible       QFIX   FAIL    0.072s ('endgame',)
+P5 #10 impossible       NOARC  FAIL    0.030s ('endgame',)
+P5 #10 impossible       CPSAT  FAIL   60.004s ('time',)
+P5 #11 impossible       ARCS   NO      0.072s (1009, 990)
+P5 #11 impossible       QFIX   FAIL    0.083s ('endgame',)
+P5 #11 impossible       NOARC  FAIL    0.036s ('endgame',)
+P5 #11 impossible       CPSAT  FAIL   60.010s ('time',)
+K3 ['NO', 2, 1]
+P4 N=2000: est 4.96 ms, DP 0.1 s, rel err ['9.4e-11', '1.3e-10', '3.4e-09', '4.3e-08']
+P4 N=8000: est 1.35 ms, DP 9.1 s, rel err ['3.4e-13', '1.0e-12', '2.6e-11', '3.2e-10']
+P4 N=16000: est 2.43 ms, DP 70.3 s, rel err ['4.5e-13', '0.0e+00', '2.7e-12', '2.7e-11']
+done

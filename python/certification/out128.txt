@@ -1,0 +1,25 @@
+Arb working precision: 128 bits
+
+chi5 (Legendre mod 5): end box [1-2^-8, 1] via Cauchy: M=sup|L| on |s-1|=1/4 <= 1.91364, |L'| <= 7.89949, lower bound 0.3995515583
+
+chi5 (Legendre mod 5): CERTIFIED on [1/2, 1] with 558 boxes
+  min certified lower bound: L(sigma) > 0.2311139855  (attained on box [0.50000000, 0.50193787])
+  L(0.5) = [0.23175094750401575588 +/- 3.39e-21]
+  L(0.75) = [0.33610563499806043748 +/- 1.45e-21]
+  L(1) = [0.43040894096400403889 +/- 5.67e-22]
+
+chi7 (cubic mod 7, chi(3)=omega): end box [1-2^-8, 1] via Cauchy: M=sup|L| on |s-1|=1/4 <= 2.82665, |L'| <= 11.6684, lower bound 0.5023801222
+
+chi7 (cubic mod 7, chi(3)=omega): CERTIFIED on [1/2, 1] with 438 boxes
+  min certified lower bound: |L(sigma)| >= 0.3178117261  (attained on box [0.50000000, 0.50193787])
+  L(0.5) = [0.31008936259836766059 +/- 1.96e-21] + [-0.072641931370177905246 +/- 3.79e-22]j
+  L(0.75) = [0.43382528575759772511 +/- 2.30e-21] + [-0.093202339391222217314 +/- 4.24e-22]j
+  L(1) = [0.53774738050490415907 +/- 4.02e-21] + [-0.10529754563079555867 +/- 4.21e-21]j
+
+chi8 (even real mod 8): end box [1-2^-8, 1] via Cauchy: M=sup|L| on |s-1|=1/4 <= 1.64606, |L'| <= 6.79492, lower bound 0.5966825969
+
+chi8 (even real mod 8): CERTIFIED on [1/2, 1] with 366 boxes
+  min certified lower bound: L(sigma) > 0.3714814303  (attained on box [0.50000000, 0.50387573])
+  L(0.5) = [0.37369171291254730738 +/- 1.59e-21]
+  L(0.75) = [0.51230896250732621613 +/- 3.81e-21]
+  L(1) = [0.62322524014023051339 +/- 4.03e-21]

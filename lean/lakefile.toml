@@ -1,0 +1,18 @@
+name = "ArcsAlgo"
+defaultTargets = ["ArcsAlgo", "verify_bench", "Solution"]
+
+[[require]]
+name = "mathlib"
+scope = "leanprover-community"
+rev = "3e1821461a4bc54072a3bd970e5a2ea5d9fd9713"
+
+[[lean_lib]]
+name = "ArcsAlgo"
+
+[[lean_exe]]
+name = "verify_bench"
+root = "Main"
+
+[[lean_lib]]
+name = "Solution"
+roots = ["Solution"]

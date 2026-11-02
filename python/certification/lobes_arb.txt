@@ -1,0 +1,10 @@
+Arb precision 128 bits; kappa = [0.323065947219 +/- 4.51e-13]
+check H_15(3/7): closed form [0.06662270941 +/- 2.56e-12] vs midpoint quadrature 0.066623
+l_3 >= [0.1315931951 +/- 4.17e-11] (A_3/phi at X = 29/40, after a certified local minimum in (1/5, 21/100))
+l_3 <= [0.1324689363 +/- 4.25e-11]  (58 intervals)  =>  l_3 in [[0.131593 +/- 1.96e-7], [0.132469 +/- 6.37e-8]]
+non-emerging q <= 20000 with R_q not certified < l_3: 145 moduli, largest 2730
+  [3, 5, 7, 9, 11, 12, 13, 15, 17, 19, 20, 21, 23, 24, 25, 27, 28, 29, 30, 31, 33, 35, 36, 37, 39, 40, 41, 42, 44, 45, 48, 51, 52, 55, 56, 57, 60, 63, 65, 66] ...
+direct certification: 144 / 144 moduli certified with sup_{X>=1/(2q)} A_q/phi < l_3; failures []
+  largest interval bound on [1/(2q), X*] [0.114464 +/- 1.71e-7] at q = 15 (beyond X* the tail bound is used)
+M_0.7 <= [15.137223 +/- 4.94e-7] (primes [2, 3, 5, 7, 11, 13]); bound at q = 20001: [0.085627622 +/- 4.16e-10] < l_3: True; decreasing in q for q >= 1
+total time 39 s

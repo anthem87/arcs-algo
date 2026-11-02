@@ -1,0 +1,38 @@
+criterion sha256 65f9ddefd21640108a69ef3671f0831a7551a15bfc475f5007b3ca838bea9922  seed_base 7348148289123270672  dev=False  params {'delta': 0.001, 'max_ops': 17179869184, 'memory': 1073741824}
+K1 corrupted solution rejected: True
+K2 false NO certificate (q=7) rejected: True
+K3 all-even weights, odd target: ['NO', 2, 1]; NO with valid certificate: True
+K4 max_ops 2^20 on P6 #0: ['FAIL', 'predicted 2^33.6 ops > max_ops']; FAIL with prediction: True
+
+P1
+  impossible-C1          correct 2/2  wrong 0  fail 0  median time 0.114 s
+  planted                correct 6/6  wrong 0  fail 0  median time 0.061 s
+
+P2
+  planted R=1e+08        correct 3/3  wrong 0  fail 0  median time 0.053 s
+  planted R=1e+10        correct 3/3  wrong 0  fail 0  median time 0.063 s
+
+P3
+  partition              correct 6/6  wrong 0  fail 0  median time 0.011 s
+
+P5
+  impossible             correct 6/6  wrong 0  fail 0  median time 0.264 s
+  planted                correct 6/6  wrong 0  fail 0  median time 0.153 s
+
+P6
+  planted                correct 6/6  wrong 0  fail 0  median time 10.609 s
+  random-target          correct 6/6  wrong 0  fail 0  median time 5.866 s
+
+P7
+  planted                correct 6/6  wrong 0  fail 0  median time 1.141 s
+
+P8
+  planted                correct 6/6  wrong 0  fail 0  median time 1.218 s
+  random-target          correct 6/6  wrong 0  fail 0  median time 1.493 s
+
+P9
+  planted-sparse-large   correct 0/3  wrong 0  fail 3  median time 0.004 s  fails: [('predicted memory 2^54.0 B > memory (time 2^55.6 ops)', 0.004), ('predicted memory 2^54.0 B > memory (time 2^55.6 ops)', 0.004), ('predicted memory 2^54.0 B > memory (time 2^55.6 ops)', 0.003)]
+
+wrong answers: 0
+undeclared FAIL reasons: none
+prediction |m_pred - m| <= 2: 54/54 = 100.0%  (pass if >= 90%);  differences: +0, +0, +0, +0, +0, +0, +0, +0, +0, +0, +0, +0, +0, +0, +0, +0, +0, +0, +0, +0, +0, +0, +0, +0, +0, +0, +0, +0, +0, +0, +0, +0, +0, +0, +0, +0, +0, +0, +0, +0, +0, +0, +0, +0, +0, +0, +0, +0, +0, +0, +0, +0, +0, +0

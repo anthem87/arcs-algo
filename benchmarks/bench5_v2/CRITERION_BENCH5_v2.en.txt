@@ -1,0 +1,74 @@
+ENGLISH TRANSLATION, NOT HASHED. The preregistered criterion is the Italian file CRITERIO_BENCH5_v2.md in this folder:
+its sha256 (CRITERIO_BENCH5_v2.sha256) seeds every instance, and checker5.py verifies it. This translation is for
+reading only; where it differs from the original, the original holds.
+
+# CRITERION_BENCH5 v2 — non-progressive benchmark of the five problems (preregistered, 28/10/2026)
+
+Rules: this file is frozen before any instance is generated. Its sha256 is the seed of all instances
+(seed_base = int(sha256[:16], 16); instance i of problem P: seed = seed_base + 1000·P + i). One run.
+No parameter of any method is changed after seeing a result; any change of code or criterion gives a v2 with a
+new hash and a new run, and the run v1 stays published as it is.
+Every answer goes through an independent checker (checker5.py), which does not import the solvers' code.
+Machine: cloud container, one process, one thread per method, wall-clock times.
+
+## Differences from v1 (ARCS code only; problems, opposing methods and criteria identical)
+The v1 stays published as it is. The v2 changes only the following, decided after the code review and before
+this run:
+1. filtered endgame: the prime P is uniform among the primes of [P₀, 2P₀), drawn by rejection with the
+   solver's seeded generator (v1: sympy.randprime, not uniform and not seeded);
+2. endgame: the guard m ≤ 44 on the full MITM applies in the 𝒵 < 8 branch too (v1: only after the rounds);
+3. endgame: one round isolated in a function (no change of behaviour); check m·max(W) < 2⁶³;
+4. ArcsDyn: no gcd pair if n < 2 (no effect on the instances of this benchmark).
+The seed changes because this file changes: the instances of v2 are new.
+
+## Methods
+- ARCS: arc solver with dynamic moduli (arcs_dyn.ArcsDyn: Q0 = 24, DCAP = 2000, PAIRS = 64, C_EPS = 1, seed 0)
+  and filtered endgame (endgame_fast.endgame_mod, prime uniform over the primes of [P₀, 2P₀), 6 rounds, full MITM only if m ≤ 44);
+  ρ* = 5·10⁴, CAP = 60. If at suffix 0 a class is empty for a selected modulus, ARCS answers NO with the
+  certificate (q, c); otherwise it answers with a subset or FAIL (no claim).
+- CPSAT: OR-Tools CP-SAT 9.15, one Boolean variable per weight, constraint Σ w_i x_i = T, 1 worker, 60 s limit.
+  Answers: subset (FEASIBLE/OPTIMAL), NO (INFEASIBLE, a proof of the solver), FAIL (time limit).
+- BNB: reimplementation of the branch-and-bound of Bitcoin Core (decreasing order, include/exclude DFS,
+  pruning on current sum > T and on current sum + remainder < T, cap of 100 000 tries, exact window).
+- KK: Karmarkar–Karp differencing (reports the difference obtained).
+- CKK: complete Karmarkar–Karp (Korf), search for difference 0 (or 1 if S is odd), 60 s limit.
+- DP: bitset dynamic programming. Run only if n·S ≤ 10¹¹ bits; otherwise the memory required (n·S bits) is
+  recorded as N/A.
+- QFIX: ARCS with fixed moduli q = 2..24 (P5 only). NOARC: ARCS without moduli (P5 only).
+
+## Problems and instances
+- P1 reconciliation (Maria). n = 800 amounts in cents, uniform in [10³, 10⁹]. Target = sum of a planted subset
+  of size uniform in [n/4, 3n/4]. 6 instances. Control C1: 2 instances with amounts that are multiples of
+  50 cents and target ≡ 37 (mod 50): the correct answer is NO.
+  Methods: ARCS, CPSAT, DP (N/A expected).
+- P2 change-free wallet (Luca). n = 1000 amounts uniform in [1, R], R ∈ {10⁸, 10¹⁰}, 3 instances per R.
+  Target = sum of a planted subset of 500 elements (parameters of the CRISP benchmark). Methods: ARCS, BNB,
+  CPSAT, DP.
+- P3 inheritance (two siblings). n = 200 values in cents uniform in [10⁴, 10¹⁰], last value adjusted by +1 if
+  needed to make S even; target S/2 (perfect partition). 6 instances. Methods: ARCS, KK, CKK, CPSAT, DP.
+- P4 distinct primes. Weights {1} ∪ {p ≤ N}, N ∈ {2000, 8000, 16000}; target T = ⌊S/2 + kσ⌋, k ∈ {0, 1, 2, 3},
+  σ² = Σw²/4. Quantity: r_N(T), the number of subsets with sum T. Reference: floating-point DP with power-of-2
+  rescaling (sums of non-negative numbers: relative error ≤ n·2⁻⁵², except for contributions below 2⁻¹⁰²² times
+  the current maximum, which are lost to underflow). Method ARCS-COUNT: Gaussian density at lattice scale 1
+  with the Edgeworth series obtained by expanding exp(Σ_{j=4,6,8} κ_j (it)^j/j!) and keeping all terms of
+  order ≤ 3 in 1/n (κ₄; κ₆, κ₄²; κ₈, κ₄κ₆, κ₄³); cumulants of w·Bernoulli(½): κ₂ = w²/4, κ₄ = −w⁴/8,
+  κ₆ = w⁶/4, κ₈ = −17w⁸/16, summed over the weights; the odd cumulants vanish.
+- P5 wholesaler. n = 200 weights in grams: 195 multiples of 1009 (1009·u, u uniform in [1, 10⁹]) and 5 uniform
+  in [1, 1009·10⁹]. 6 planted targets (random subset, each element with probability ½) and 6 impossible
+  targets (residue mod 1009 outside the 32 residues reachable from the 5 non-divisible weights, value close
+  to S/2). Methods: ARCS, QFIX, NOARC, CPSAT.
+
+## Criteria (decided before the run)
+- Correctness (all methods, all problems): 0 wrong answers. A subset is right if the checker verifies sum and
+  multiset; a NO of ARCS is right if the checker recomputes N_c(q) = 0 in integer arithmetic; a NO of CPSAT
+  counts as a proof of the solver.
+- P1, P2, P3, P5 (planted): "ARCS wins" if it solves more instances than the best opponent, or the same
+  number in a median time at least 10 times smaller.
+- P5 (impossible): "ARCS wins" if it certifies more NOs than the best opponent.
+- P3: a method solves an instance only with difference 0 (S even by construction).
+- P4: ARCS-COUNT is valid if the relative error is ≤ 10⁻⁶ in every cell; it "wins" if it is valid and at least
+  100 times faster than the DP reference.
+- Controls that must fail (sanity of the chain): K1 the checker must reject a corrupted solution (one weight
+  replaced); K2 the checker must reject a false NO certificate (non-empty class); K3 on all-even weights with
+  an odd target ARCS must answer NO (q = 2), not a subset.
+- Outcome published in full, including where ARCS does not win.

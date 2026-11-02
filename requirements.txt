@@ -1,0 +1,10 @@
+# Python dependencies of arcs-algo (tested with Python 3.13).
+# Versions are those of the environment in which the certificates and checks were last run.
+numpy>=2.1.3
+sympy>=1.13.3
+mpmath>=1.3.0
+scipy>=1.14.1
+matplotlib>=3.9.2        # figures only
+python-flint>=0.9.0      # Arb ball arithmetic: certify_lobes_arb.py, certify_L_real_segment.py
+# Optional: only for the CP-SAT method of BENCH5 (benchmarks/bench5_v2). Install with: pip install ortools
+# ortools

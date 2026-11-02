@@ -1,0 +1,47 @@
+criterion sha256 f81f103745fa755315b08321b386f6553af0e78e333bab5acd9ffc782de7c796  seed_base 17879026875267446099  dev=False  time limit 60.0 s
+K1 corrupted solution rejected: True
+K2 false NO certificate (q=7) rejected: True
+K3 all-even weights, odd target -> ARCS answer ['NO', 2, 1]; certificate valid: True
+
+P1
+  feasible   ARCS   correct 6/6  wrong 0  fail 0  median time 0.156 s
+  feasible   CPSAT  correct 0/6  wrong 0  fail 6  median time 60.010 s
+  impossible ARCS   correct 2/2  wrong 0  fail 0  median time 0.385 s
+  impossible CPSAT  correct 2/2  wrong 0  fail 0  median time 0.005 s
+
+P2
+  feasible   ARCS   correct 6/6  wrong 0  fail 0  median time 0.187 s
+  feasible   BNB    correct 1/6  wrong 0  fail 5  median time 0.027 s
+  feasible   CPSAT  correct 0/6  wrong 0  fail 6  median time 60.009 s
+
+P3
+  feasible   ARCS   correct 6/6  wrong 0  fail 0  median time 0.062 s
+  feasible   CKK    correct 6/6  wrong 0  fail 0  median time 0.006 s
+  feasible   CPSAT  correct 0/6  wrong 0  fail 6  median time 60.004 s
+  feasible   KK     correct 0/6  wrong 0  fail 6  median time 0.000 s
+
+P5
+  feasible   ARCS   correct 6/6  wrong 0  fail 0  median time 0.061 s
+  feasible   CPSAT  correct 0/6  wrong 0  fail 6  median time 60.003 s
+  feasible   NOARC  correct 1/6  wrong 0  fail 5  median time 0.034 s
+  feasible   QFIX   correct 1/6  wrong 0  fail 5  median time 0.084 s
+  impossible ARCS   correct 6/6  wrong 0  fail 0  median time 0.066 s
+  impossible CPSAT  correct 0/6  wrong 0  fail 6  median time 60.004 s
+  impossible NOARC  correct 0/6  wrong 0  fail 6  median time 0.038 s
+  impossible QFIX   correct 0/6  wrong 0  fail 6  median time 0.092 s
+
+P4 counting (relative error of ARCS-COUNT against the float DP)
+  N= 2000 k=0 rel.err 9.45e-11  est 1.239 ms  DP 0.10 s
+  N= 2000 k=1 rel.err 1.28e-10  est 1.239 ms  DP 0.10 s
+  N= 2000 k=2 rel.err 3.38e-09  est 1.239 ms  DP 0.10 s
+  N= 2000 k=3 rel.err 4.33e-08  est 1.239 ms  DP 0.10 s
+  N= 8000 k=0 rel.err 3.41e-13  est 0.339 ms  DP 9.08 s
+  N= 8000 k=1 rel.err 1.02e-12  est 0.339 ms  DP 9.08 s
+  N= 8000 k=2 rel.err 2.63e-11  est 0.339 ms  DP 9.08 s
+  N= 8000 k=3 rel.err 3.24e-10  est 0.339 ms  DP 9.08 s
+  N=16000 k=0 rel.err 4.55e-13  est 0.607 ms  DP 70.32 s
+  N=16000 k=1 rel.err 0.00e+00  est 0.607 ms  DP 70.32 s
+  N=16000 k=2 rel.err 2.73e-12  est 0.607 ms  DP 70.32 s
+  N=16000 k=3 rel.err 2.66e-11  est 0.607 ms  DP 70.32 s
+
+DP bitset memory (n*S bits), min over instances: P1: 3.1e+14, P2: 5.0e+13, P3: 1.9e+14, P5: 1.9e+16

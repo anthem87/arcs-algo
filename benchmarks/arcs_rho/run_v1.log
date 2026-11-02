@@ -1,0 +1,68 @@
+P1 #0 planted              YES     0.060s rho=26.76 m_pred=35 m=35 filter 
+P1 #1 planted              YES     0.082s rho=26.76 m_pred=36 m=36 filter 
+P1 #2 planted              YES     0.123s rho=26.76 m_pred=36 m=36 filter 
+P1 #3 planted              YES     0.063s rho=26.77 m_pred=36 m=36 filter 
+P1 #4 planted              YES     0.055s rho=26.76 m_pred=35 m=35 filter 
+P1 #5 planted              YES     0.041s rho=26.76 m_pred=36 m=36 filter 
+P1 #6 impossible-C1        NO      0.157s rho=26.76 m_pred=35 m=- - (2, 1)
+P1 #7 impossible-C1        NO      0.072s rho=26.76 m_pred=35 m=- - (2, 1)
+P2 #0 planted R=1e+08      YES     0.053s rho=37.63 m_pred=32 m=32 filter 
+P2 #1 planted R=1e+08      YES     0.053s rho=37.64 m_pred=32 m=32 filter 
+P2 #2 planted R=1e+08      YES     0.054s rho=37.63 m_pred=32 m=32 filter 
+P2 #3 planted R=1e+10      YES     0.063s rho=30.10 m_pred=39 m=39 filter 
+P2 #4 planted R=1e+10      YES     0.063s rho=30.10 m_pred=39 m=39 filter 
+P2 #5 planted R=1e+10      YES     0.078s rho=30.11 m_pred=39 m=39 filter 
+P3 #0 partition            YES     0.011s rho=6.02 m_pred=41 m=41 filter 
+P3 #1 partition            YES     0.021s rho=6.02 m_pred=42 m=42 filter 
+P3 #2 partition            YES     0.014s rho=6.03 m_pred=42 m=42 filter 
+P3 #3 partition            YES     0.010s rho=6.02 m_pred=41 m=41 filter 
+P3 #4 partition            YES     0.010s rho=6.03 m_pred=42 m=42 filter 
+P3 #5 partition            YES     0.010s rho=6.03 m_pred=41 m=41 filter 
+P5 #0 planted              YES     0.616s rho=5.02 m_pred=48 m=48 filter 
+P5 #1 planted              YES     0.169s rho=5.02 m_pred=49 m=49 filter 
+P5 #2 planted              YES     0.094s rho=5.02 m_pred=48 m=48 filter 
+P5 #3 planted              YES     0.137s rho=5.02 m_pred=48 m=48 filter 
+P5 #4 planted              YES     0.059s rho=5.02 m_pred=48 m=48 filter 
+P5 #5 planted              YES     0.321s rho=5.02 m_pred=48 m=48 filter 
+P5 #6 impossible           NO      0.446s rho=5.02 m_pred=48 m=- - (1009, 923)
+P5 #7 impossible           NO      4.241s rho=5.02 m_pred=48 m=- - (1009, 837)
+P5 #8 impossible           NO      0.206s rho=5.02 m_pred=48 m=- - (1009, 771)
+P5 #9 impossible           NO      0.259s rho=5.02 m_pred=48 m=- - (1009, 231)
+P5 #10 impossible           NO      0.218s rho=5.02 m_pred=48 m=- - (1009, 181)
+P5 #11 impossible           NO      0.268s rho=5.02 m_pred=48 m=- - (1009, 799)
+P6 #0 planted              YES     9.499s rho=1.00 m_pred=50 m=50 mitm 
+P6 #1 planted              YES    10.466s rho=1.00 m_pred=50 m=50 mitm 
+P6 #2 planted              YES    10.752s rho=1.00 m_pred=50 m=50 mitm 
+P6 #3 planted              YES    10.309s rho=1.00 m_pred=50 m=50 mitm 
+P6 #4 planted              YES    12.547s rho=1.00 m_pred=50 m=50 mitm 
+P6 #5 planted              YES    11.074s rho=1.00 m_pred=50 m=50 mitm 
+P6 #6 random-target        NO      4.557s rho=1.00 m_pred=50 m=50 mitm (-3, -3)
+P6 #7 random-target        NO      6.560s rho=1.00 m_pred=50 m=50 mitm (-3, -3)
+P6 #8 random-target        NO      6.514s rho=1.00 m_pred=50 m=50 mitm (-3, -3)
+P6 #9 random-target        NO      6.147s rho=1.00 m_pred=50 m=50 mitm (-3, -3)
+P6 #10 random-target        NO      4.456s rho=1.00 m_pred=50 m=50 mitm (-3, -3)
+P6 #11 random-target        NO      5.586s rho=1.00 m_pred=50 m=50 mitm (-3, -3)
+P7 #0 planted              YES     1.155s rho=0.57 m_pred=40 m=40 exact 
+P7 #1 planted              YES     0.962s rho=0.57 m_pred=40 m=40 exact 
+P7 #2 planted              YES     0.925s rho=0.57 m_pred=40 m=40 exact 
+P7 #3 planted              YES     1.127s rho=0.57 m_pred=40 m=40 exact 
+P7 #4 planted              YES     1.383s rho=0.57 m_pred=40 m=40 exact 
+P7 #5 planted              YES     1.158s rho=0.57 m_pred=40 m=40 exact 
+P8 #0 planted              YES     1.182s rho=0.67 m_pred=40 m=40 exact 
+P8 #1 planted              YES     1.202s rho=0.67 m_pred=40 m=40 exact 
+P8 #2 planted              YES     1.234s rho=0.67 m_pred=40 m=40 exact 
+P8 #3 planted              YES     1.303s rho=0.67 m_pred=40 m=40 exact 
+P8 #4 planted              YES     0.923s rho=0.67 m_pred=40 m=40 exact 
+P8 #5 planted              YES     1.294s rho=0.67 m_pred=40 m=40 exact 
+P8 #6 random-target        NO      1.546s rho=0.67 m_pred=40 m=40 exact (-3, -3)
+P8 #7 random-target        NO      1.429s rho=0.67 m_pred=40 m=40 exact (-3, -3)
+P8 #8 random-target        NO      1.525s rho=0.67 m_pred=40 m=40 exact (-3, -3)
+P8 #9 random-target        NO      1.401s rho=0.67 m_pred=40 m=40 exact (-3, -3)
+P8 #10 random-target        NO      1.461s rho=0.67 m_pred=40 m=40 exact (-3, -3)
+P8 #11 random-target        NO      1.531s rho=0.67 m_pred=40 m=40 exact (-3, -3)
+P9 #0 planted-sparse-large FAIL    0.004s rho=0.91 m_pred=100 m=- - ('predicted memory 2^54.0 B > memory (time 2^55.6 ops)', {'delta': 0.001, 'max_ops': 17179
+P9 #1 planted-sparse-large FAIL    0.004s rho=0.91 m_pred=100 m=- - ('predicted memory 2^54.0 B > memory (time 2^55.6 ops)', {'delta': 0.001, 'max_ops': 17179
+P9 #2 planted-sparse-large FAIL    0.003s rho=0.91 m_pred=100 m=- - ('predicted memory 2^54.0 B > memory (time 2^55.6 ops)', {'delta': 0.001, 'max_ops': 17179
+K3 ['NO', 2, 1]
+K4 ['FAIL', 'predicted 2^33.6 ops > max_ops']
+done
