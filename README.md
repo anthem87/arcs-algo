@@ -102,3 +102,7 @@ lake exe verify_bench ../benchmarks/arcs_rho/results_v1.json ../benchmarks/arcs_
 
 The figures are not stored in the repository. Each script in `python/figures/` (and `python/arcs_theory/arcs_fig.py` for
 Figure 5) writes its PNG and PDF next to itself.
+
+## License
+
+Licensed under the GNU AGPL v3 or later (AGPL-3.0-or-later); see LICENSE.
