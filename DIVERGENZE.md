@@ -16,25 +16,25 @@ Le ipotesi classiche (Siegel–Walfisz, Vinogradov–Vaughan, Jackson, Rosser–
 
 | # | Voce | Riga paper | Dichiarazioni Lean principali | Tipo di divergenza |
 |---|---|---|---|---|
-| 1 | Lemma Q | 171 | `LemmaQ.lean`: `lemmaQ1`, `lemmaQ1_avg`, `lemmaQ2`, `rhsQ_anti`, `lemmaQ2_Rq`, `Rq_bound`, `Rq_bound_tau`, `lemmaQ3`; `RemarkLobe.lean`: `anti_first_min` | (1): intervallo semiaperto e disuguaglianza stretta; (2), (3): q ≥ 1 invece di q ≥ 3; (3): 2^{ω(q)} invece di τ(q); ℓ_q ≤ R_q non enunciato a sé; β corretta già nel rev1 |
-| 2 | Teorema E | 280 | `EdgeE2.lean`: `thmE`, `thmE2`; `ThmE1.lean`: `thmE1`, `thmE1_B40`; `ThmE3.lean`: `thmE3`; `EdgeRel.lean`: `thmE2_rel` | o(1) sostituito da δ > 0 con N₀(δ); costanti esplicite e termini esponenzialmente piccoli tenuti a parte; B > 40 serve solo per (1); nel caso 𝒱 = {w} compare s̃* al posto di s*; in (3) ℓ_q è preso nella forma ℓ*_q (estremo inferiore 1/(2q)) |
-| 3 | Remark (the formula of Proposition C) | 311 | `RemarkPropC.lean`: `thmC2_rel`, `thmC2_paper`; `RemarkPropCV.lean`: `thmC2_vanish` | antecedente esplicito \|ν\| ≤ C_νN^{3/2+ε/2}; esponente relativo più forte (−1 + 6ε, costante 12); q ∈ 𝔈 non richiesto; nel caso 𝒱 = {w} la forma assoluta è diversa da quella di (2) |
-| 4 | Proposizione B′ | 720 | `SecondMoment/BPCondT.lean`: `propBprime_cond`; `SecondMoment/BPUT.lean`: `propBprime_uncond`; `SecondMoment/BPConst.lean`: `CCu_eq` | g ≥ 0; la forma "senza condizionamento" è in Lean condizionata all'evento di parità (anche al denominatore); i limiti per M → ∞ (1/5, 1/80, −√3/80) non sono formalizzati |
-| 5 | Teorema 7.2 | 978 | `Structural.lean`: `Tstruct_idem`, `Tstruct_of_closed`, `inject_dom`, `Eval_fixes`, `Eval_nonempty`, `Eval_fixes_exactly`, `Eval_blocks_counterexample`, `parity_supported`, `def_supported`, `Tstruct_not_idem_counterexample` | variabili booleane; Par dato dal suo risultato; in (c) ipotesi diversa e conclusione più debole ("al più un valore", senza "without blocking"); costi O(·) non formalizzati |
-| 6 | Teorema 7.4 | 998 | `Propagation.lean`: `Tcomp_le`, `Tcomp_mono`, `Tcomp_eq_self_iff`, `Tfail_stable`, `Tcomp_bound_counterexample`, `limit_greatest`, `limit_supported`, `limit_perm`, `schedule_eq_limit` | (iii) per l'operatore con fallimento assorbente `Tfail` e con domini iniziali non vuoti; (iv) con il limite definito come iterato `size W` volte, e l'indipendenza dall'ordine enunciata come permutazione o schedule; constraint generici, Val finito |
-| 7 | Lemma J | 874 | `RandomWeights.lean`: `roundSuccess_ge` | forma astratta (misura finita, masse non normalizzate, Z_r arbitrari); convenzione 0/0 = 0; nessuna divergenza sostanziale rispetto al rev1 |
-| 8 | Lemma V | 904 | `Uniform/LemV2.lean`: `lemmaV`, `sum_pairPA`, `DeqA` | (1 + o(1)) sostituito da (1 + ε) con m₀(g, ε); g ≥ 0; il denominatore è λ = E[Z \| S_E = s] (nel paper è 𝒵); e^{g²/2} già nel rev1 |
-| 9 | Teorema R″ | 927 | `Uniform/RppRound.lean`: `succB_ge`, `succB_unif`, `pRpp`; `Uniform/RppRounds.lean`: `thmRpp_gen`; `Uniform/RppAsymp.lean`: `Hm`, `exists_Hm`, `params_Rpp`, `thmRpp` | p senza il termine O(m^{−1/5}) e con /(1 + ε); scelta di R diversa; m dato da `Hm` (intervallo a due lati); serve 2e^{−g²/6} < 1 e M ≥ M₀; forma "probabilità congiunta"; costo e tempo di esecuzione non formalizzati |
+| 1 | Lemma Q | 171 | `LemmaQ.lean`: `lemmaQ1`, `lemmaQ1_avg`, `lemmaQ2`, `rhsQ_anti`, `lemmaQ2_Rq`, `Rq_bound`, `Rq_bound_tau`, `lemmaQ3`; `RemarkLobe.lean`: `anti_first_min` | allineato al rev1 attuale; Lean più generale in (2), (3) (q ≥ 1, ogni X > 0, 2^{ω(q)} ≤ τ(q)); ℓ_q ≤ R_q non enunciato a sé |
+| 2 | Teorema E | 280 | `EdgeE2.lean`: `thmE`, `thmE2`; `ThmE1.lean`: `thmE1`, `thmE1_B40`; `ThmE3.lean`: `thmE3`; `EdgeRel.lean`: `thmE2_rel` | allineato al rev1 attuale (s̃* nel caso 𝒱 = {w}; ℓ*_q in (2) e (3), ora `ellq` anche in Lean); Lean più esplicito: δ con N₀(δ), costanti esplicite, termini esponenzialmente piccoli a parte; B > 40 serve solo per (1) |
+| 3 | Remark (the formula of Proposition C) | 311 | `RemarkPropC.lean`: `thmC2_rel`, `thmC2_paper`; `RemarkPropCV.lean`: `thmC2_vanish` | allineato al rev1 attuale; antecedente esplicito \|ν\| ≤ C_νN^{3/2+ε/2}; Lean più forte nel caso 𝒱 = ∅ (−1 + 6ε, costante 12); q ∈ 𝔈 non richiesto |
+| 4 | Proposizione B′ | 722 | `SecondMoment/BPCondT.lean`: `propBprime_cond`; `SecondMoment/BPUT.lean`: `propBprime_uncond`; `SecondMoment/BPConst.lean`: `CCu_eq` | allineato al rev1 attuale (λ al denominatore, condizionamento sulla parità); g ≥ 0; [BR, Theorem 22.1] come ipotesi; limiti per M → ∞ formalizzati |
+| 5 | Teorema 7.2 | 981 | `Structural.lean`: `Tstruct_idem`, `Tstruct_of_closed`, `inject_dom`, `Eval_fixes`, `Eval_nonempty`, `Eval_fixes_exactly`, `Eval_blocks_counterexample`, `parity_supported`, `def_supported`, `Tstruct_not_idem_counterexample` | allineato al rev1 attuale; Lean ha Val = Bool, il paper Val generico (§8 formalizzato a parte in `Chain.lean`); Par dato dal suo risultato; costi O(·) non formalizzati |
+| 6 | Teorema 7.4 | 1001 | `Propagation.lean`: `Tcomp_le`, `Tcomp_mono`, `Tcomp_eq_self_iff`, `Tfail_stable`, `Tcomp_bound_counterexample`, `limit_greatest`, `limit_supported`, `limit_perm`, `schedule_eq_limit` | allineato al rev1 attuale (V e Val finiti, T_fail, domini non vuoti); (iv) come permutazione o schedule; vincoli generici |
+| 7 | Lemma J | 877 | `RandomWeights.lean`: `roundSuccess_ge` | allineato al rev1 attuale; forma astratta (masse non normalizzate, Z_r arbitrari); convenzione 0/0 = 0 |
+| 8 | Lemma V | 907 | `Uniform/LemV2.lean`: `lemmaV`, `sum_pairPA`, `DeqA`; `Uniform/RppRate.lean`: `lemmaV_core`, `lemmaV_rate` | allineato al rev1 attuale (enunciato e prova): (1 + O(m^{−1/5})) = (1 + C(g) m^{−1/5}) con m₀(g) (`lemmaV_rate`); anche la forma (1 + ε) con m₀(g, ε) (`lemmaV`); g ≥ 0; il denominatore è λ = E[Z \| S_E = s], ora anche nel paper; e^{g²/2} già nel rev1 |
+| 9 | Teorema R″ | 930 | `Uniform/RppRound.lean`: `succB_ge`, `succB_unif`, `pRpp`; `Uniform/RppRounds.lean`: `thmRpp_gen`; `Uniform/RppAsymp.lean`: `Hm`, `exists_Hm`, `params_Rpp`, `thmRpp`; `Uniform/RppRate.lean`: `pRate`, `succB_rate`, `thmRpp_rate`, `Hm_of_isLeast`, `pRate_ge`, `thmRpp_asymp` | allineato al rev1 attuale: p_rate (`thmRpp_rate`, `ARCS.theoremR''_rate`) e parte asintotica con m minimo, P₀ = ⌊λ_m/2⌋, R = ⌈ln(1/δ)/((1 − 2e^{−g²/6})p_rate)⌉ (`thmRpp_asymp`, `ARCS.theoremR''`); O(m^{−1/5}) come C(g) m^{−1/5}, o(1) come ε, "M large" come M ≥ M₀; la forma con ε (`thmRpp`) resta nella libreria; costo e tempo non formalizzati |
 | 10 | Lemma B | 696 | `Uniform/LemmaB1.lean`: `lemmaB1_unif`; `Uniform/LemmaB2.lean`: `lemmaB2_unif`, `lemmaB3_unif`, `lemmaB2_rate`, `lemmaB3_rate`; `SecondMoment/LemmaB.lean`: `lemmaB_fixedM` | (2), (3): tasso O(m^{−1/5}) uniforme in M dimostrato (rev1 coperto); non coperto O(m^{−1/2+3η}) per ogni η (versione precedente); (1) in forma o(1); g ≥ 0 |
 
 ---
 
 ## 1. Lemma Q
 
-### Paper (riga 171)
+### Paper (riga 171, rev1 attuale)
 
 > **Lemma Q (lobes of every arc).** Let q ≥ 3, h_q(x) = log|Φ_q(−e(x))| and κ = Cl₂(π/3)/π = 0.32307…
-> 1. h_q is non-increasing on [0, 1/(2q)], so A_q(X) ≤ φ(q)c_q for X ≤ 1/(2q), and X_q ≥ 1/(2q).
+> 1. h_q is strictly decreasing on [0, 1/(2q)), so A_q is strictly decreasing on (0, 1/(2q)), A_q(X) < φ(q)c_q for 0 < X < 1/(2q), and X_q ≥ 1/(2q).
 > 2. For every X ≥ 1/(2q),
 > $$A_q(X)\le\sum_{\mu(q/d)=1}\min\Big(\log 2,\frac{\kappa}{dX}\Big)+\sum_{\mu(q/d)=-1}\beta(dX),\qquad \beta(L)=\begin{cases}\max\Big(\kappa,\ \min\big(\kappa/L,\ \log\tfrac{e}{2L}\big)\Big) & L\le1,\\ \kappa/L & L>1,\end{cases}$$
 > and the right side is non-increasing in X. Writing R_q for its value at X = 1/(2q) divided by φ(q),
@@ -111,29 +111,27 @@ theorem lemmaQ3 {q : ℕ} (hq0 : 0 < q) {X : ℝ} (hX : 1 ≤ X) : Aq q X ≤ ka
 ### Differenza
 
 - **β(L)**: la formula del rev1 coincide con `betaQ`. La correzione della checklist è dunque già nel rev1. Va controllato che il `.tex` non riporti ancora il β precedente, che non è non crescente perché κ > 1 − log 2.
-- **(1)**: il paper dice "non-increasing on [0, 1/(2q)]" (intervallo chiuso). Lean dimostra "strettamente decrescente" su [0, 1/(2q)), intervallo semiaperto. Nel punto x = 1/(2q) il polinomio Φ_q(−e(x)) si annulla per q dispari, e in Lean log 0 = 0, quindi l'estremo va escluso. Anche "A_q(X) ≤ φ(q)c_q for X ≤ 1/(2q)" diventa in Lean una disuguaglianza **stretta** per 0 < X < 1/(2q): l'estremo X = 1/(2q) non è nell'enunciato Lean, e X = 0 è escluso perché in Lean A_q(0) = 0/0 = 0, non log|Φ_q(−1)|. "X_q ≥ 1/(2q)" sta in `anti_first_min` (RemarkLobe), con X_q definito come in `firstLocalMin`.
+- **(1)**: **allineato al rev1 attuale.** Il paper dice ora "strictly decreasing on [0, 1/(2q))", A_q strettamente decrescente su (0, 1/(2q)) e A_q(X) < φ(q)c_q per 0 < X < 1/(2q), come `lemmaQ1` e `lemmaQ1_avg`; X_q ≥ 1/(2q) è `anti_first_min` (per ogni primo minimo locale X_q).
 - **(2)**: Lean vale per ogni X > 0 e q ≥ 1, il paper per X ≥ 1/(2q) e q ≥ 3 (Lean è più generale). La catena "ℓ_q ≤ R_q" **non è enunciata come teorema Lean a sé**. Lean ha A_q(X) ≤ φ(q)R_q per X ≥ 1/(2q) (`lemmaQ2_Rq`), da cui ℓ_q ≤ R_q segue con X_q ≥ 1/(2q) (`anti_first_min`). Le due stime di R_q valgono in Lean per q ≥ 2.
 - **(3)**: Lean dimostra A_q(X) ≤ κ·2^{ω(q)} per q ≥ 1, che è più forte di κτ(q) perché 2^{ω(q)} ≤ τ(q). La forma con τ(q) non è un enunciato Lean separato (compare solo nel docstring).
 
 **Wording suggerito.**
-> 1. For q ≥ 3, h_q is strictly decreasing on [0, 1/(2q)); hence A_q(X) < φ(q)c_q and A_q is strictly decreasing for 0 < X < 1/(2q), and every first local minimum X_q of A_q satisfies X_q ≥ 1/(2q), with A_q non-increasing on (0, X_q].
-> 2. For q ≥ 1 and every X > 0, A_q(X) ≤ Σ_{μ(q/d)=1} min(log 2, κ/(dX)) + Σ_{μ(q/d)=−1} β(dX), with β as above, and the right side is non-increasing in X. Writing R_q for its value at X = 1/(2q) divided by φ(q), A_q(X) ≤ φ(q)R_q for every X ≥ 1/(2q), hence ℓ_q ≤ R_q; for q ≥ 2, φ(q)R_q ≤ 2^{ω(q)−1}(1 + log 2 + log rad q) ≤ τ(q) log(2eq)/2.
-> 3. For q ≥ 1 and X ≥ 1, A_q(X) ≤ κ·2^{ω(q)} ≤ κτ(q).
+Nessuno: il Lemma Q del rev1 attuale corrisponde a `lemmaQ1`, `lemmaQ1_avg`, `anti_first_min`, `lemmaQ2`–`Rq_bound_tau`, `lemmaQ3` (Lean è più generale in (2) e (3): ogni X > 0, q ≥ 1, e κ·2^{ω(q)} ≤ κτ(q)). ℓ_q ≤ R_q segue da `lemmaQ2_Rq` e `anti_first_min`, senza un teorema Lean a sé.
 
 ---
 
 ## 2. Teorema E (arc expansion)
 
-### Paper (riga 280)
+### Paper (riga 280, rev1 attuale)
 
 > **Theorem E (arc expansion).** Fix B > 40 (B = 48 makes the error in (1) O(1/log N)) and 0 < ε < 1/8 (the statements for larger ε follow). As N → ∞, for 3 ≤ q ≤ 𝔓:
 > 1. (minor arcs) sup_{θ∈𝔪}|F_N(e(θ))| ≤ 2^n exp((−log 2 + O((log N)^{5−B/8}) + O(M^{−1/2}))π(N)).
 > 2. (emerging arcs) Let q ∈ 𝔈. With the cumulants κ_j* of Lemma W(3), s* = √κ₂* and z = (T − κ₁*)/s*, put
 > $$\widehat H(T)=e^{-iTt^*}\,G(\theta^*)\,\frac{\varphi(z)}{s^*}\Big(1+\frac{\kappa_3^*}{6s^{*3}}He_3(z)+\frac{\kappa_4^*}{24s^{*4}}He_4(z)+\frac{\kappa_3^{*2}}{72s^{*6}}He_6(z)\Big).$$
-> If 𝒱(a/q) = ∅, put 𝒜*_{a/q}(T) = e(−Ta/q)Ĥ(T) and Ω = 1. If 𝒱(a/q) = {w}, write 1 + e(wθ) = −iwt·e^{iwt/2}sinc(wt/2) and replace G by G̃ = G·e^{iwt/2}sinc(wt/2) in Ĥ: its value G̃(θ*) = G(θ*)e^{iwt*/2}sinc(wt*/2) replaces G(θ*), and the cumulants of G̃ at t*, those of G plus those of e^{iwt/2}sinc(wt/2) at t* (see the note after the theorem), replace the κ_j*. Put 𝒜*_{a/q}(T) = e(−Ta/q)·w·(d/dT)Ĥ(T) and Ω = w(|t*| + 1/s*); θ* stays the peak of |G|. Then, for every T,
+> If 𝒱(a/q) = ∅, put 𝒜*_{a/q}(T) = e(−Ta/q)Ĥ(T) and Ω = 1. If 𝒱(a/q) = {w}, write 1 + e(wθ) = −iwt·e^{iwt/2}sinc(wt/2) and replace G by G̃ = G·e^{iwt/2}sinc(wt/2) in Ĥ: its value G̃(θ*) = G(θ*)e^{iwt*/2}sinc(wt*/2) replaces G(θ*), and the cumulants of G̃ at t*, those of G plus those of e^{iwt/2}sinc(wt/2) at t* (see the note after the theorem), replace the κ_j*. Put 𝒜*_{a/q}(T) = e(−Ta/q)·w·(d/dT)Ĥ(T) and Ω = w(|t*| + 1/s̃*), where s̃* is the square root of the second cumulant of G̃ at t*; s̃* takes the place of s* in Ĥ, in Ω and in the error term below. θ* stays the peak of |G|. Then, for every T,
 > $$R_{a/q}(T)=\mathcal A^*_{a/q}(T)+O\Big(\Omega\,|G(\theta^*)|\,\frac{N^{-3/2+2\varepsilon}}{s^*}\Big)+O\big(2^ne^{(-\log2+\ell^*_q+o(1))\pi(N)}\big),\qquad \ell^*_q=\sup_{X\ge1/(2q)}\frac{A_q(X)}{\varphi(q)} .$$
 > In particular, if 𝒱(a/q) = ∅, then R_{a/q}(T) = 𝒜*_{a/q}(T)(1 + O(N^{−1+2ε})) + O(2^n e^{(−log 2 + ℓ*_q + o(1))π(N)}) uniformly for |z| ≤ √(log N).
-> 3. (other arcs) For q ∉ 𝔈, |R_{a/q}(T)| ≤ 2^n exp((−log 2 + ℓ_q + o(1))π(N)).
+> 3. (other arcs) For q ∉ 𝔈, |R_{a/q}(T)| ≤ 2^n exp((−log 2 + ℓ*_q + o(1))π(N)), and ℓ*_q = ℓ_q whenever A_q has a first local minimum X_q (Remark below).
 
 ### Lean
 
@@ -161,7 +159,8 @@ theorem thmE (hSW : SiegelWalfisz) (hVV : VinogradovVaughan) (hJ : JacksonThm) {
                 4 * Real.exp (-((N : ℝ) ^ (2 * ε)) / (512 * Real.log N))) +
             2 * (2 ^ (WN N).card * Real.exp ((-Real.log 2 + ellq q (1 / (2 * q)) + δ) * Nat.primeCounting N)))) ∧
       (∀ q a : ℕ, 3 ≤ q → (q : ℝ) ≤ PP B N → a.Coprime q → ¬ emerging q → ∀ T : ℝ,
-        ‖Rarc B N q a T‖ ≤ 2 ^ (WN N).card * Real.exp ((-Real.log 2 + ellE q + δ) * Nat.primeCounting N))
+        ‖Rarc B N q a T‖ ≤
+          2 ^ (WN N).card * Real.exp ((-Real.log 2 + ellq q (1 / (2 * q)) + δ) * Nat.primeCounting N))
 ```
 
 I tre congiunti sono rispettivamente:
@@ -205,10 +204,10 @@ Definizioni rilevanti: `PP B N = (log N)^B` (= 𝔓, `ThmE3.lean:38`); `Rarc` = 
 - **o(1) negli esponenti**: diventa "+δ per ogni δ > 0, per N ≥ N₀(B, ε, δ)", uniformemente in q, a, T. È equivalente, ma va detto esplicitamente che è uniforme.
 - **Costanti esplicite**: gli O(·) di (2) hanno costante 1 (sul termine principale d'errore) e 2 (sul termine dei lobi). Lean tiene **a parte** i termini esponenzialmente piccoli |G(θ*)|e^{−cN^{2ε}/log N} (coda gaussiana e spalle), che il paper assorbe nell'O(Ω|G(θ*)|N^{−3/2+2ε}/s*).
 - **Ruolo di B**: B > 40 serve solo per (1). (2), (3) e la forma relativa valgono per ogni B > 0, e (1) in forma esplicita vale per ogni B > 0. Le ipotesi Vinogradov–Vaughan e Jackson servono solo per (1); Siegel–Walfisz serve per tutte e tre.
-- **Caso 𝒱(a/q) = {w}**: nel paper il termine d'errore è Ω|G(θ*)|N^{−3/2+2ε}/s* con Ω = w(|t*| + 1/s*). In Lean **s* è sostituito da s̃***, la radice del secondo cumulante esatto di G̃ in t*, sia in Ω sia al denominatore. I cumulanti sono quelli esatti di G̃ in t*, come già dice il rev1.
+- **Caso 𝒱(a/q) = {w}**: **allineato al rev1 attuale.** Il paper usa ora s̃* (radice del secondo cumulante di G̃ in t*) in Ĥ, in Ω = w(|t*| + 1/s̃*) e nel termine d'errore, come Lean (`sV`).
 - **Picco**: in Lean t* è caratterizzato come zero di F′ con |t*| ≤ 4|ν_{a/q}|/S₂. "θ* stays the peak of |G|" corrisponde a questo.
 - **q ∈ 𝔈 in (2)**: è un'ipotesi dell'enunciato Lean, ma la dimostrazione non la usa (docstring di `thmE2`).
-- **(3)**: il paper scrive ℓ_q (sup per X ≥ X_q), Lean usa ℓ*_q = max(0, sup per X ≥ 1/(2q)) (`ellE`). Per q ∉ 𝔈 e X_q primo minimo locale di A_q le due quantità coincidono: **dimostrato** in `ArcsAlgo.Core.ellE_eq_ellq` (`RemarkLobe.lean`, 2 nov 2026; da `remark_lobe_max`, `remark_lobe_other`, `lemmaQ1_avg` e `hq_zero`: A_q(1/(2q)) ≤ h_q(0) = 0 ≤ ℓ_q). L'enunciato (3) di `thmE` resta scritto con `ellE`; insieme a `ellE_eq_ellq` dà la forma del paper.
+- **ℓ*_q in (2) e (3)**: **allineato al rev1 attuale.** Il paper usa ℓ*_q = sup_{X≥1/(2q)} A_q(X)/φ(q) in (2) e (3), e dice ℓ*_q = ℓ_q quando A_q ha un primo minimo locale X_q (q ∉ 𝔈). Dal 3 nov 2026 `thmE` (`ARCS.theoremE`) è enunciato con `ellq q (1/(2q))` = ℓ*_q anche in (3) (prima `ellE` = max(0, ℓ*_q)); il max(0, ·) era ridondante: `ellE_eq` (`EdgeLobes.lean`, da `ellq_nonneg` via `Aq_ge`). `ellE_eq_ellq` (`ARCS.theoremE_lobe_exponent`) dice ora ℓ*_q = ℓ_q per q ∉ 𝔈 e X_q primo minimo locale, come il paper.
 - **"In particular"**: costante 12, δ al posto di o(1), condizione |z| ≤ √(log N) con z reale costruito con Re κ₁*.
 
 **Wording suggerito.**
@@ -219,15 +218,19 @@ Definizioni rilevanti: `PP B N = (log N)^B` (= 𝔓, `ThmE3.lean:38`); `Rarc` = 
 > If 𝒱(a/q) = {w}, let s̃* be the square root of the second cumulant of G̃ at t* and Ω = w(|t*| + 1/s̃*); then
 > |R_{a/q}(T) − 𝒜*_{a/q}(T)| ≤ |G(θ*)|(Ω N^{−3/2+2ε}/s̃* + w e^{−N^{2ε}/(16384 log N)} + 4e^{−N^{2ε}/(512 log N)}) + 2·2^n e^{(−log 2 + ℓ*_q + δ)π(N)}.
 > In particular, if 𝒱(a/q) = ∅ and |z| ≤ √(log N), |R_{a/q}(T) − 𝒜*_{a/q}(T)| ≤ 12N^{−1+2ε}|𝒜*_{a/q}(T)| + 2·2^n e^{(−log 2 + ℓ*_q + δ)π(N)}.
-> 3. (other arcs; every B > 0) For q ∉ 𝔈, |R_{a/q}(T)| ≤ 2^n exp((−log 2 + ℓ*_q + δ)π(N)) (and ℓ*_q = ℓ_q for q ∉ 𝔈).
+> 3. (other arcs; every B > 0) For q ∉ 𝔈, |R_{a/q}(T)| ≤ 2^n exp((−log 2 + ℓ*_q + δ)π(N)) (and ℓ*_q = ℓ_q when A_q has a first local minimum).
+
+Il rev1 attuale corrisponde a questi enunciati salvo la forma (o(1) come δ, costanti esplicite, termini esponenzialmente piccoli tenuti a parte in Lean): sono differenze di esplicitezza, non punti in cui il paper dice più di Lean.
 
 ---
 
 ## 3. Remark (the formula of Proposition C)
 
-### Paper (riga 311)
+### Paper (riga 311, rev1 attuale)
 
-> **Remark (the formula of Proposition C).** If ν_{a/q} ≪ N^{3/2+ε/2}, as under GRH for the odd characters mod q (for fixed q), the peak lies well inside the core of a/q, and the linear tilt e^{−νσ} on the core is dominated by the Gaussian decay. The same proof, run with the expansion at a/q instead of θ*, then gives (2) with the arc term 𝒜_{a/q} of Proposition C. When 𝒱(a/q) = ∅ the error is relative, O(N^{−1/2+3ε}), uniformly for |Re z| ≤ √(log N); z is now complex, with |Im z| ≍ |ν|/s*. When 𝒱(a/q) = {w} the bound keeps the absolute form of (2): the main term w·Ĥ′ ≈ −w·zφ(z)/s² vanishes at z = 0, so no relative bound holds near it. This is the form tested in Table 2. Unconditionally the expansion must be centred at the peak θ*, because ν_{a/q} is only known to be ≪ N²e^{−c√log N}.
+> **Remark (the formula of Proposition C).** If ν_{a/q} ≪ N^{3/2+ε/2}, as under GRH for the odd characters mod q (for fixed q), the peak lies well inside the core of a/q, and the linear tilt e^{−νσ} on the core is dominated by the Gaussian decay. The same proof, run with the expansion at a/q instead of θ*, then gives (2) with the arc term 𝒜_{a/q} of Proposition C. When 𝒱(a/q) = ∅ the error is relative, O(N^{−1/2+3ε}), uniformly for |Re z| ≤ √(log N); z is now complex, with |Im z| ≍ |ν|/s*. When 𝒱(a/q) = {w} the bound is absolute and centred at a/q: with s̃² the second cumulant of G̃ at a/q, for every T and every δ > 0,
+> $$|R_{a/q}(T)-\mathcal A_{a/q}(T)|\le|G(a/q)|\Big(\frac{w\,e^{\nu^2/(2\tilde s^2)}N^{-3/2+7\varepsilon}}{\tilde s^2}+w\,e^{-N^{2\varepsilon}/(16384\log N)}+4e^{4\nu^2/S_2}e^{-N^{2\varepsilon}/(2048\log N)}\Big)+2\cdot2^ne^{(-\log2+\ell^*_q+\delta)\pi(N)}$$
+> for N ≥ N₀(δ). The main term w·Ĥ′ ≈ −w·zφ(z)/s² vanishes at z = 0, so no relative bound holds near it. This is the form tested in Table 2. Unconditionally the expansion must be centred at the peak θ*, because ν_{a/q} is only known to be ≪ N²e^{−c√log N}.
 
 ### Lean
 
@@ -278,27 +281,25 @@ theorem thmC2_vanish (hSW : SiegelWalfisz) {B : ℝ} (hB : 0 < B) {ε : ℝ} (h�
 - **Antecedente**: "ν_{a/q} ≪ N^{3/2+ε/2}" diventa l'ipotesi esplicita |ν_{a/q}| ≤ C_νN^{3/2+ε/2}, con N₀ dipendente da C_ν. GRH non è un'ipotesi Lean: è solo la motivazione dell'antecedente.
 - **Esponente relativo**: Lean dimostra 12N^{−1+6ε}, più forte di O(N^{−1/2+3ε}) per ε < 1/6. La forma del paper (`thmC2_paper`) vale con costante 1. Il paper può tenere N^{−1/2+3ε}, ma è corretto, e più informativo, scrivere 12N^{−1+6ε}.
 - **q ∈ 𝔈**: "gives (2)" rimanda a una parte enunciata per q ∈ 𝔈, ma gli enunciati Lean del Remark **non richiedono** q ∈ 𝔈 (valgono per ogni 3 ≤ q ≤ 𝔓).
-- **Caso 𝒱 = {w}**: il paper dice "keeps the absolute form of (2)". La forma assoluta dimostrata in Lean **non** è quella di (2) (Ω|G(θ*)|N^{−3/2+2ε}/s*): è centrata in a/q, con |G(a/q)|, esponente N^{−3/2+7ε}, denominatore s̃², fattore e^{ν²/(2s̃²)} e termini esponenzialmente piccoli espliciti.
+- **Caso 𝒱 = {w}**: **allineato al rev1 attuale.** Il paper dà ora la stima assoluta centrata in a/q, con |G(a/q)|, N^{−3/2+7ε}, s̃², e^{ν²/(2s̃²)} e i termini esponenzialmente piccoli espliciti: è `thmC2_vanish`.
 - **"|Im z| ≍ |ν|/s*"**: è una frase descrittiva, non fa parte di un enunciato Lean di questa voce.
 
 **Wording suggerito.**
-> **Remark (the formula of Proposition C).** Fix C_ν > 0 and assume |ν_{a/q}| ≤ C_νN^{3/2+ε/2} (true under GRH for the odd characters mod q, for fixed q). Then, for every δ > 0 and N ≥ N₀(B, ε, C_ν, δ), uniformly in 3 ≤ q ≤ 𝔓 and (a, q) = 1, with the arc term 𝒜_{a/q} of Proposition C expanded at a/q:
-> if 𝒱(a/q) = ∅, |R_{a/q}(T) − 𝒜_{a/q}(T)| ≤ 12N^{−1+6ε}|𝒜_{a/q}(T)| + 2·2^n e^{(−log 2 + ℓ*_q + δ)π(N)} uniformly for |Re z| ≤ √(log N) (in particular the relative error is ≤ N^{−1/2+3ε});
-> if 𝒱(a/q) = {w}, |R_{a/q}(T) − 𝒜_{a/q}(T)| ≤ |G(a/q)|(w e^{ν²/(2s̃²)}N^{−3/2+7ε}/s̃² + w e^{−N^{2ε}/(16384 log N)} + 4e^{4ν²/S₂}e^{−N^{2ε}/(2048 log N)}) + 2·2^n e^{(−log 2 + ℓ*_q + δ)π(N)} for every T; no relative bound is claimed, since the main term ≈ −w zφ(z)/s̃² vanishes at z = 0.
+Nessuno: il Remark del rev1 attuale corrisponde a `thmC2_rel`/`thmC2_paper` (𝒱 = ∅) e `thmC2_vanish` (𝒱 = {w}), con "ν ≪ N^{3/2+ε/2}" come |ν| ≤ C_νN^{3/2+ε/2} e N₀(B, ε, C_ν, δ).
 
 ---
 
 ## 4. Proposizione B′
 
-### Paper (riga 720)
+### Paper (riga 722, rev1 attuale)
 
 > **Proposition B′ (the constant of the second moment).** Fix M ≥ 2 and g > 0, and put z = (s − mμ)/(σ√m). Uniformly in |z| ≤ g and |u| ≤ M with u ≡ s (mod 2),
-> $$\frac{E[Z^2\mid S_E=s]}{\mathcal Z^2}=1+\frac{1+\mathbf1[u=0]}{\mathcal Z}+\frac{\kappa_c}m+\frac{\gamma_M\,z}{m^{3/2}}+O_{M,g}(m^{-2}),$$
-> and, without conditioning but on the event S_E ≡ u (mod 2),
-> $$\frac{E[Z^2]}{(EZ)^2}=1+\frac{1+\mathbf1[u=0]}{EZ}+\frac\kappa m+\frac{c_2(M,u)}{m^2}+O_M(m^{-3}),\qquad c_2(M,u)=c_2(M,0)-\frac{2\kappa u^2}{Ew^2},$$
+> $$\frac{E[Z^2\mid S_E=s]}{\lambda^2}=1+\frac{1+\mathbf1[u=0]}{\lambda}+\frac{\kappa_c}m+\frac{\gamma_M\,z}{m^{3/2}}+O_{M,g}(m^{-2}),$$
+> and, conditioning only on the event S_E ≡ u (mod 2), with Z̄_u = E[Z | S_E ≡ u (mod 2)],
+> $$\frac{E[Z^2\mid S_E\equiv u\ (\mathrm{mod}\ 2)]}{\bar Z_u^{\,2}}=1+\frac{1+\mathbf1[u=0]}{\bar Z_u}+\frac\kappa m+\frac{c_2(M,u)}{m^2}+O_M(m^{-3}),\qquad c_2(M,u)=c_2(M,0)-\frac{2\kappa u^2}{Ew^2},$$
 > with
 > $$\kappa=\frac{\operatorname{Var}(w^2)}{4(Ew^2)^2}\to\frac15,\qquad\kappa_c=\frac{\operatorname{Var}(w^2)-\operatorname{Cov}(w^2,w)^2/\operatorname{Var}(w)}{4(Ew^2)^2}\to\frac1{80},$$
-> $$\gamma_M=\frac{\sigma\,(B-2\beta A)}{4(Ew^2)^2}\to-\frac{\sqrt3}{80},\quad A=[…],\ \beta=[…],\ B=\frac{E[R^2(w-\mu)]}{\operatorname{Var}(w)},$$
+> $$\gamma_M=\frac{\sigma\,(B-2\beta A)}{4(Ew^2)^2}\to-\frac{\sqrt3}{80},\quad A=\operatorname{Var}(w^2)-\frac{\operatorname{Cov}(w^2,w)^2}{\operatorname{Var}(w)},\ \beta=\frac{\operatorname{Cov}(w,w^2)}{\operatorname{Var}(w)\,Ew^2},\ B=\frac{E[R^2(w-\mu)]}{\operatorname{Var}(w)},$$
 > where R = w² − Ew² − (Cov(w², w)/Var(w))(w − μ).
 
 ### Lean
@@ -334,21 +335,20 @@ theorem CCu_eq (hM : 2 ≤ M) (u : ℝ) : CCu M u = CCu M 0 - 2 * kapB M * u ^ 2
 
 - **c₂(M, u)**: già corretto nel rev1, in accordo con Lean.
 - **g**: paper g > 0, Lean g ≥ 0 (più generale).
-- **Parte "without conditioning"**: in Lean **entrambi** i momenti, e quindi anche il termine 1/EZ, sono condizionati all'evento S_E ≡ u (mod 2): E[Z²|S_E ≡ u]/E[Z|S_E ≡ u]². Letto alla lettera, "E[Z²]/(EZ)²" con medie non condizionate differisce dalla versione Lean per il fattore 1/Pr(S_E ≡ u (mod 2)) ≈ 2, perché Z(u) = 0 fuori dall'evento. Conviene scrivere esplicitamente le medie condizionate.
+- **Parte condizionata alla parità**: **allineato al rev1 attuale.** Il paper condiziona ora solo sull'evento S_E ≡ u (mod 2), con Z̄_u = E[Z | S_E ≡ u (mod 2)], come `propBprime_uncond` (`lamU`, `m2U`).
+- **Denominatore della prima formula**: **allineato al rev1 attuale.** Il paper scrive ora λ (prima 𝒵), come `lamB`; anche nel Lemma B‴ i conteggi sono λ_J(v, t).
 - **Limiti per M → ∞** (κ → 1/5, κ_c → 1/80, γ_M → −√3/80): **dimostrati** il 3 nov 2026 in `SecondMoment/BPLimits.lean` (`kapB_tendsto`, `kapcB_tendsto`, `gamB_tendsto`), per w uniforme su {1, …, M}; per simmetria Cov(w², w)/Var(w) = M + 1, R = (w − μ)² − σ² e B = 0 (`BB_eq_zero`).
 - **c₂(M, 0)**: in Lean è definito come coefficiente della serie (`CCu M 0`). Il paper non ne dà una formula chiusa; i valori numerici 0.246, 0.274, 0.281 non sono formalizzati.
 - **Ipotesi**: [BR, Theorem 22.1] a ogni ordine (`BR22Edge`), come ipotesi.
 
 **Wording suggerito.**
-> Fix M ≥ 2 and g ≥ 0 […] Uniformly in |z| ≤ g and |u| ≤ M with u ≡ s (mod 2), […] + O_{M,g}(m^{−2}), and, conditioning only on the event S_E ≡ u (mod 2), with Z̄_u = E[Z | S_E ≡ u (mod 2)],
-> E[Z² | S_E ≡ u (mod 2)]/Z̄_u² = 1 + (1 + 1[u = 0])/Z̄_u + κ/m + c₂(M, u)/m² + O_M(m^{−3}), c₂(M, u) = c₂(M, 0) − 2κu²/Ew²,
-> with κ, κ_c, γ_M as above; as M → ∞, κ → 1/5, κ_c → 1/80 and γ_M → −√3/80 (formalized).
+Nessuno: la Proposizione B′ del rev1 attuale corrisponde a `propBprime_cond` e `propBprime_uncond` (g ≥ 0 in Lean, più generale; [BR, Theorem 22.1] come ipotesi `BR22Edge`); i limiti per M → ∞ sono `kapB_tendsto`, `kapcB_tendsto`, `gamB_tendsto`.
 
 ---
 
 ## 5. Teorema 7.2 (structural collapse)
 
-### Paper (riga 978; Definizione 7.1 alla riga 974)
+### Paper (riga 981, rev1 attuale; Definizione 7.1 alla riga 977)
 
 > **Definition 7.1.** T_struct = Eval ∘ Par, where:
 > - Par is union-find with parity on C_par [Tarjan]. Every variable is written x = r ⊕ b_x with r the root of its class; there is one domain per class (a shared cell). The shared form is 𝒮 = { W | ∀x ∼ y, W(x) = W(y) ⊕ (b_x ⊕ b_y) }.
@@ -357,7 +357,7 @@ theorem CCu_eq (hM : 2 ≤ M) (u : ℝ) : CCu M u = CCu M 0 - 2 * kapB M * u ^ 2
 > **Theorem 7.2 (structural collapse).**
 > - (a) T_struct ∘ T_struct = T_struct, and T_struct(W) ∈ 𝒮.
 > - (b) For W ∈ 𝒮 closed under Eval, T_struct(W) = W.
-> - (c) Injection: if W ∈ 𝒮 and one variable is fixed, its parity class is updated in O(1). If every input in I is fixed and no parity class contains two inputs, one pass of Eval fixes every defined variable, in time O(Σ_x cost(f_x)), without blocking; two inputs in one class may be fixed inconsistently, and the conflict appears as an empty cell, in O(1).
+> - (c) Injection: if W ∈ 𝒮 and one variable is fixed, its parity class is updated in O(1). If every input in I is fixed and no parity class contains two inputs, one pass of Eval leaves every domain with at most one value, in time O(Σ_x cost(f_x)). If moreover the network has a solution α with α(r) in the initial cell of every class, no domain becomes empty and every domain is exactly {α(x)}. Without such a solution a cell can become empty even when no class contains two inputs: two definitions may write one class inconsistently (x := u, y := ¬u with x = y; Lean: `Eval_blocks_counterexample`). Two inputs in one class may also be fixed inconsistently. In both cases the conflict appears as an empty cell, in O(1).
 > - (d) For W ∈ 𝒮 closed under Eval, υ(c, W) = 0 for every c ∈ C_par and every definition read forwards.
 
 ### Lean
@@ -420,33 +420,30 @@ Remark 7.2′: `Tstruct_not_idem_counterexample` (`:463`).
 ### Differenza
 
 - **Ordine di Eval**: "topological order of the parity classes" è già nel rev1. In Lean è reso preciso da `RankedDefs`: rango sulle classi, genitori in classi di rango strettamente minore, lista ordinata per rango.
-- **Dominio dei valori**: Lean tratta solo variabili **booleane** (Val = Bool). Il paper non lo dice in 7.1–7.2, anche se la parità lo suggerisce.
+- **Dominio dei valori**: Lean tratta solo variabili booleane (Val = Bool), il paper un Val generico (§7.1: W : V → 𝒫(Val)); il Teorema 7.3 dice "for Boolean Val". È una differenza documentata, non un punto da allineare: §8, dove i domini sono insiemi di interi (le somme parziali s_i), è formalizzato direttamente in `Chain.lean` (`mem_reach`, `back_eq`, `back_greatest`, `greedy_spec`, …), che non importa `Structural.lean` né `Propagation.lean` e quindi non dipende dalla versione generale del Teorema 7.2.
 - **Par**: Lean non formalizza l'algoritmo union-find, ma il suo risultato (struttura `Classes`). Le affermazioni di complessità O(1) e O(Σ_x cost(f_x)) in (c) **non sono formalizzate**.
-- **(c)**:
-  - l'ipotesi Lean non è "every input in I is fixed and no parity class contains two inputs", ma "ogni classe ha cella con ≤ 1 valore, oppure è scritta da una definizione";
+- **(c)**: **allineato al rev1 attuale** nella forma corretta: il paper dice ora "at most one value", aggiunge la soluzione α nelle celle iniziali ("every domain is exactly {α(x)}") e cita il controesempio `Eval_blocks_counterexample`. Restano, come note:
+  - l'ipotesi del paper (ogni input fissato, nessuna classe con due input; I = variabili non definite e non fuse con un input) implica quella Lean, "ogni classe ha cella con ≤ 1 valore, oppure è scritta da una definizione";
   - la conclusione di `Eval_fixes` è "ogni dominio ha **al più** un valore";
-  - **"without blocking" è falso sotto le sole ipotesi del paper** (controesempio `Eval_blocks_counterexample`, `Structural.lean`): u input fissato a 0, classe di parità {x, y} con x = y, definizioni x := u e y := ¬u, ordine topologico sulle classi; nessuna classe contiene due input, eppure dopo una passata la cella di {x, y} è vuota, perché le due definizioni che scrivono la stessa classe sono in conflitto. Il paper attribuisce il blocco solo a due input nella stessa classe; qui il conflitto viene da due definizioni;
-  - **forma corretta, dimostrata** (2 nov 2026): se la rete (parità e definizioni) ha una soluzione α con α(r) nella cella iniziale di ogni classe (stato iniziale coerente con le definizioni), Eval conserva α (`Eval_nonempty`: α(x) ∈ dominio, quindi nessun dominio vuoto), e sotto le ipotesi di `Eval_fixes` ogni dominio è **esattamente** {α(x)} (`Eval_fixes_exactly`);
+  - il controesempio `Eval_blocks_counterexample` (due definizioni che scrivono una stessa classe in modo incoerente) è ora citato dal paper; senza la soluzione α una cella può svuotarsi anche se nessuna classe contiene due input;
+  - la forma con α è dimostrata (`Eval_nonempty`: nessun dominio vuoto; `Eval_fixes_exactly`: ogni dominio è esattamente {α(x)});
   - "the conflict appears as an empty cell" è solo nel docstring;
   - l'iniezione è formalizzata (`inject_dom`) senza l'ipotesi W ∈ 𝒮, perché lo stato è per costruzione in forma condivisa.
 - **(d)**: per i vincoli di parità basta W ∈ 𝒮, e il risultato riguarda i vincoli x = y ⊕ (b_x ⊕ b_y) tra variabili della stessa classe, cioè quelli assorbiti da Par. Per le definizioni basta la chiusura sotto Eval della singola definizione, più x ∉ pred(x); 𝒮 non serve.
 
 **Wording suggerito.**
-> Let Val = {0, 1}. Par is given by its result: a root r and a parity bit b_x for every variable. Assume the definitions are listed in an order topological on the parity classes: there is a rank on the classes such that every parent of a definition lies in a class of strictly smaller rank, and the list is sorted by the rank of the class it writes.
-> (a) T_struct ∘ T_struct = T_struct and T_struct(W) ∈ 𝒮. (b) For W ∈ 𝒮 closed under Eval, T_struct(W) = W.
-> (c) Injecting x = a changes only the cell of the class of x, and gives every y in that class a domain contained in {a ⊕ b_x ⊕ b_y}. If every class either has a cell with at most one value or is written by a definition, one pass of Eval leaves every domain with at most one value. If moreover the network (parity classes and definitions) has a solution α whose values lie in the initial cells, no domain becomes empty: every domain is exactly {α(x)}. Without such a solution the pass may block even when no class contains two inputs (two definitions writing one parity class may disagree). [Complexity claims: informal.]
-> (d) For W ∈ 𝒮, υ(c, W) = 0 for every parity constraint between members of one class; for W closed under a definition x := f_x(pred x) with x ∉ pred x, that definition read forwards has zero defect at x.
+Nessuno. Lean ha Val = Bool, il paper Val generico: differenza documentata sopra (§8 è formalizzato direttamente in `Chain.lean`). Il resto del Teorema 7.2 del rev1 attuale corrisponde a `Tstruct_idem`, `Tstruct_of_closed`, `inject_dom`, `Eval_fixes`, `Eval_nonempty`, `Eval_fixes_exactly`, `parity_supported`, `def_supported`; la complessità non è formalizzata.
 
 ---
 
 ## 6. Teorema 7.4
 
-### Paper (riga 998)
+### Paper (riga 1001, rev1 attuale)
 
-> **Theorem 7.4.** Assume every T_c, c ∈ C_comp ∪ Def (definitions also read backwards), is the generalized arc consistency filter.
+> **Theorem 7.4.** Let V and Val be finite, and assume every T_c, c ∈ C_comp ∪ Def (definitions also read backwards), is the generalized arc consistency filter.
 > - (i) T_comp is decreasing and monotone: T_comp(W) ⊑ W and W ⊑ W′ → T_comp(W) ⊑ T_comp(W′).
 > - (ii) T_comp(W) = W ⟺ ∀c υ(c, W) = 0.
-> - (iii) With μ(W) = Σ_v(|W(v)| − 1), and the empty domain counted as failure, T_comp^m(W) = T_comp^{μ(W)+1}(W) for every m ≥ μ(W) + 1. The extra step is the one that empties a domain: one variable with W = {0} and the assertion x = 1 has μ(W) = 0 and needs one step (Lean: `Tcomp_bound_counterexample`).
+> - (iii) Let μ(W) = Σ_v(|W(v)| − 1), and let T_fail be T_comp with the state replaced by the failure state as soon as a domain becomes empty. If every domain of W is non-empty, then T_fail^m(W) = T_fail^{μ(W)+1}(W) for every m ≥ μ(W) + 1. μ(W) rounds do not suffice in general: one variable with W = {0} and the assertion x = 1 has μ(W) = 0 but T_comp(W) ≠ W (Lean: `Tcomp_bound_counterexample`).
 > - (iv) The limit W* is the largest W′ ⊑ W with υ(c, W′) = 0 for every c, and it does not depend on the order of the filters (chaotic iteration [Apt]).
 
 ### Lean
@@ -514,22 +511,20 @@ theorem schedule_eq_limit (cs : List (Constraint V Val)) (W : Dom V Val)
 
 ### Differenza
 
-- **Ipotesi "C_comp ∪ Def (definitions also read backwards)"**: in Lean non c'è distinzione tra famiglie. Il teorema vale per una qualsiasi lista finita di vincoli; Val e V sono finiti.
-- **(iii)**:
-  - l'operatore iterato in Lean è T_fail (fallimento assorbente), non T_comp: "the empty domain counted as failure" va letto come "T_comp^m sostituito da T_fail^m";
-  - Lean richiede in più che **tutti i domini iniziali siano non vuoti**;
-  - il controesempio dimostra μ(W) = 0 e T_comp(W) ≠ W (servono μ(W) + 1 passi), non che "needs one step" esattamente.
+- **Finitezza**: **allineato al rev1 attuale.** Il paper dice ora "Let V and Val be finite", come Lean.
+- **Ipotesi "C_comp ∪ Def (definitions also read backwards)"**: in Lean non c'è distinzione tra famiglie; il teorema vale per una qualsiasi lista finita di vincoli.
+- **(iii)**: **allineato al rev1 attuale.** Il paper usa ora T_fail, chiede domini non vuoti e dà il controesempio con μ(W) = 0 e T_comp(W) ≠ W (`Tcomp_bound_counterexample`), come `Tfail_stable`.
 - **(iv)**: il limite è definito come iterato `size W` volte di T_comp (senza fallimento). "Does not depend on the order of the filters" è formalizzato in due forme: invarianza per permutazione della lista (`limit_perm`), e uguaglianza col limite per ogni schedule di filtri di cs che raggiunga uno stato a difetto nullo (`schedule_eq_limit`). Lean non contiene un riferimento formale a [Apt].
 - La correzione μ(W) + 1 è già nel rev1.
 
 **Wording suggerito.**
-> **Theorem 7.4.** Let C be a finite list of constraints over finite V and Val, and let every T_c be the generalized arc consistency filter. (i) […] (ii) […] (iii) Let T_fail be T_comp with the state replaced by the failure state as soon as a domain becomes empty. If every domain of W is non-empty, then T_fail^m(W) = T_fail^{μ(W)+1}(W) for every m ≥ μ(W) + 1; μ(W) rounds do not suffice in general (one variable with W = {0} and the assertion x = 1: μ(W) = 0 but T_comp(W) ≠ W). (iv) The limit W* = T_comp^{Σ_v|W(v)|}(W) has υ(c, W*) = 0 for every c and is the largest W′ ⊑ W with this property; it is unchanged under any permutation of C, and every schedule of filters from C that ends in a state with υ = 0 for all c ends in W*.
+Nessuno: il Teorema 7.4 del rev1 attuale corrisponde a `Tcomp_le`, `Tcomp_mono`, `Tcomp_eq_self_iff`, `Tfail_stable`, `Tcomp_bound_counterexample` e, per (iv), a `limit_perm` e `schedule_eq_limit` ([Apt] senza riferimento formale).
 
 ---
 
 ## 7. Lemma J
 
-### Paper (riga 874)
+### Paper (riga 877, rev1 attuale)
 
 > **Lemma J (averaging over the residues).** For every finitely supported law of the weights and of P,
 > $$\Pr(\text{round succeeds})\ \ge\ \frac{(\mathbb E N)^2}{\mathbb E[P\cdot Y_P]} .$$
@@ -564,10 +559,10 @@ theorem roundSuccess_ge {Ω : Type*} (s : Finset Ω) (p : Ω → ℝ) (hp : ∀ 
 
 ## 8. Lemma V
 
-### Paper (riga 904)
+### Paper (riga 907, versione del 3 nov 2026)
 
 > **Lemma V (equal half-sums).** For 𝒫₁, let ψ = 2^{m/2}/M. Uniformly in M ≥ 2 and in the window, for m ≥ m₀(g),
-> $$\frac{D_{\rm eq}}{\mathcal Z }\le 0.72\,e^{g^2/2}\,m\,(3\psi+\psi^2)\,(1+o(1)).$$
+> $$\frac{D_{\rm eq}}{\lambda}\le 0.72\,e^{g^2/2}\,m\,(3\psi+\psi^2)\,\big(1+O(m^{-1/5})\big),\qquad \lambda=E[Z(u)\mid S_E=s].$$
 
 (D_eq, riga 893: D_eq = E #{(τ, τ′) ∈ 𝒫², τ ≠ τ′, both hitting a, S_y = S_{y′}}; window: |s − mμ| ≤ gσ√m, |u| ≤ M, u ≡ s (mod 2), a = (s + u)/2; |A| = h = ⌊m/2⌋.)
 
@@ -597,31 +592,32 @@ Bound intermedio `sum_pairPA` (`Uniform/LemV2.lean:110`): Σ_{x≠x′} Pr ≤ 2
 ### Differenza
 
 - e^{g²/2} (al posto di e^{λ²/2}) è già nel rev1, in accordo con Lean.
-- "(1 + o(1)) for m ≥ m₀(g)" diventa in Lean "(1 + ε) per ogni ε > 0, per m ≥ m₀(g, ε)", uniformemente in M ≥ 2 e nella finestra (equivalente, ma è la forma esatta).
+- **Allineato al rev1 attuale (enunciato e prova).** Il paper dice ora (1 + O(m^{−1/5})) con m ≥ m₀(g) e λ = E[Z(u) | S_E = s], e la prova usa λ = λ_m(1 + O(m^{−1/5})) (Lemma B(1) con il tasso, `lemmaB1_rate`): è l'enunciato di `lemmaV_rate` (sotto), con O(m^{−1/5}) reso come C(g) m^{−1/5}. La forma con ε (`lemmaV`: (1 + ε) per ogni ε > 0, m ≥ m₀(g, ε)) resta nella libreria ed è implicata da quella con il tasso.
+- Dal 3 nov 2026 anche con il tasso: `lemmaV_rate` (`Uniform/RppRate.lean`) dà D_eq/λ ≤ 0.72e^{g²/2}m(3ψ + ψ²)(1 + C(g) m^{−1/5}) per m ≥ m₀(g), uniformemente in M ≥ 2 e nella finestra. La dimostrazione è quella di `lemmaV`, resa generale in `lemmaV_core` (gli errori relativi su λ e su Pr(S_E = s) come ipotesi), con Lemma B(1) con il tasso e del2 = O(1/m) ≤ O(m^{−1/5}). Serve al Teorema R″ con il tasso (voce 9); non è confrontato da solo.
 - g ≥ 0 invece di g > 0.
-- Il denominatore è λ = E[Z | S_E = s] (`lamB`); il paper scrive 𝒵. Conviene unificare la notazione (λ, come nel Lemma B).
+- Il denominatore è λ = E[Z | S_E = s] (`lamB`), ora anche nel paper (prima 𝒵).
 - La parità u ≡ s (mod 2) è implicita nell'ipotesi 2a = s + u.
 
 **Wording suggerito.**
-> **Lemma V.** For 𝒫₁ with |A| = ⌊m/2⌋, let ψ = 2^{m/2}/M. For every g ≥ 0 and ε > 0 there is m₀(g, ε) such that, for all M ≥ 2, m ≥ m₀ and s, u in the window, D_eq/λ ≤ 0.72 e^{g²/2} m(3ψ + ψ²)(1 + ε), where λ = E[Z(u) | S_E = s].
+Nessuno: l'enunciato del 3 nov 2026 corrisponde a `lemmaV_rate` (O(m^{−1/5}) letto come C(g) m^{−1/5}, uniformemente in M ≥ 2 e nella finestra).
 
 ---
 
 ## 9. Teorema R″ (filtered endgame)
 
-### Paper (riga 927)
+### Paper (riga 930, versione del 3 nov 2026)
 
-> **Theorem R″ (filtered endgame).** Take the setting of Theorem R′ with R disjoint blocks in place of r, so that |T − S/2| ≤ S_G/2 − RmM, and fix g (say g = 3). In round j replace the meet-in-the-middle by the filtered endgame of §5.6 on E_j. The prime P_j is uniform among the primes of [P₀, 2P₀), and r_j is uniform in ℤ/P_j, both drawn independently of everything else. Assume P₀ ≥ 100.
+> **Theorem R″ (filtered endgame).** Take the setting of Theorem R′ with R disjoint blocks in place of r, so that |T − S/2| ≤ S_G/2 − RmM, and fix g ≥ 0 with 2e^{−g²/6} < 1 (say g = 3). In round j replace the meet-in-the-middle by the filtered endgame of §5.6 on E_j. The prime P_j is uniform among the primes of [P₀, 2P₀), and r_j is uniform in ℤ/P_j, both drawn independently of everything else. Assume P₀ ≥ 100.
 >
 > Then, given the weights of G and the block sums, the rounds fail independently. A round whose block sum lies in the window fails with probability at most 1 − p, where
-> $$p=\Big[\frac{2P_0}{\lambda_m}\big(1+0.72\,e^{g^2/2}m(3\psi+\psi^2)\big)+6\ln(mM)\Big(1+\frac2{\lambda_m}+O(m^{-1/5})\Big)\Big]^{-1}(1+o(1)).$$
+> $$p=\Big[\frac{2P_0}{\lambda_m}\big(1+0.72\,e^{g^2/2}m(3\psi+\psi^2)\big)+6\ln(mM)\Big(1+\frac2{\lambda_m}+O(m^{-1/5})\Big)\Big]^{-1}\big(1-O(m^{-1/5})\big).$$
 > The expected cost of a round is O(m·2^{m/4} + m·2^{m/2}/P₀).
 >
 > A round whose block sum leaves the window counts as failed; this happens with probability at most 2e^{−g²/6}, independently across blocks.
 >
-> Now choose P₀ = ⌊λ_m/2⌋ and m the least integer with 2^m ≥ (σ√m)^{4/3}, so m = (4/3)b + (2/3)log₂ b + O(1). Then:
+> Now choose P₀ = ⌊λ_m/2⌋ and m the least positive integer with 2^m ≥ (σ√m)^{4/3} (by minimality also 2^m ≤ 2(σ√m)^{4/3}), so m = (4/3)b + (2/3)log₂ b + O(1). Then:
 > - p ≥ (1 − o(1))/(6 ln(mM)), and 2^{m/4} ≍ 2^{m/2}/P₀ ≍ (σ√m)^{1/3};
-> - with R = ⌈ln(1/δ)/((1 − 2e^{−g²/6})·p)⌉ rounds the algorithm fails with probability at most δ, provided n ≥ |G| + Rm;
+> - with R = ⌈ln(1/δ)/((1 − 2e^{−g²/6})·p)⌉ rounds, the probability that |T − S/2| ≤ S_G/2 − RmM and the algorithm fails is at most δ, provided n ≥ |G| + Rm;
 > - it runs in time O(log(1/δ)·log(nM)·(n log n + M^{1/3}·poly(b))). For log n = o(b) and log(1/δ) = 2^{o(b)} this is 2^{b/3+o(b)}.
 
 ### Lean
@@ -689,29 +685,77 @@ theorem thmRpp (hRS : RosserSchoenfeld) {g : ℝ} (hg : 0 ≤ g) (hge : 2 * exp 
         ((M : ℝ) ^ h * ((M : ℝ) ^ m) ^ R) ≤ δ
 ```
 
+Con il tasso (dal 3 nov 2026) — `Uniform/RppRate.lean`: `lemmaV_rate` (`:194`), `pRate` (`:236`), `succB_rate` (`:325`), `thmRpp_rate` (`:386`, confrontato come `ARCS.theoremR''_rate`):
+
+```lean
+noncomputable def pRate (g C : ℝ) (M m P₀ : ℕ) : ℝ :=
+  (2 * P₀ / lamM M m * (1 + 0.72 * exp (g ^ 2 / 2) * m *
+      (3 * (√((2 : ℝ) ^ m) / M) + (√((2 : ℝ) ^ m) / M) ^ 2)) +
+    6 * log (m * M) * (1 + 2 / lamM M m + C * (m : ℝ) ^ (-(1 / 5 : ℝ))))⁻¹ *
+    (1 - C * (m : ℝ) ^ (-(1 / 5 : ℝ)))
+```
+```lean
+theorem succB_rate (hRS : RosserSchoenfeld) {g : ℝ} (hg : 0 ≤ g) :
+    ∃ C : ℝ, 0 ≤ C ∧ ∃ m₀ : ℕ, ∀ M m P₀ : ℕ, 2 ≤ M → m₀ ≤ m → 100 ≤ P₀ →
+      ∀ A : Finset (Fin m), A.card = m / 2 →
+      ∀ s u a : ℤ, 2 * a = s + u → |(s : ℝ) - m * muW M| ≤ g * √(sig2 M) * √(m : ℝ) → |u| ≤ M →
+      (2 : ℤ) ∣ u - s → pRate g C M m P₀ ≤ succB M m P₀ A s a
+```
+```lean
+theorem thmRpp_rate (hRS : RosserSchoenfeld) {g : ℝ} (hg : 0 ≤ g) :
+    ∃ C : ℝ, 0 ≤ C ∧ ∃ m₀ : ℕ, ∀ M h m R P₀ : ℕ, 2 ≤ M → m₀ ≤ m → 100 ≤ P₀ →
+      ∀ A : Finset (Fin m), A.card = m / 2 →
+      ∀ (T : (Fin h → Fin M) → (Fin R → ℤ) → ℤ) (K : Fin R → (Fin R → ℤ) → Finset (Fin R)),
+      (∀ j b, j ∉ K j b) →
+      (∑ wG : Fin h → Fin M, ∑ wB : Fin R → Fin m → Fin M,
+          (if condRp m wG (bsum wB) (T wG (bsum wB)) then
+            ∏ j, (1 - sPr P₀ A (wB j) (aRp wG (T wG (bsum wB)) (bsum wB) (K j (bsum wB)) j)) else 0)) /
+        ((M : ℝ) ^ h * ((M : ℝ) ^ m) ^ R) ≤
+        (1 - (1 - 2 * exp (-(g ^ 2 / 6))) * pRate g C M m P₀) ^ R
+```
+
+Parte asintotica con il tasso (dal 3 nov 2026) — `ArcsAlgo.LLT.thmRpp_asymp` (`Uniform/RppRate.lean`, confrontato come **`ARCS.theoremR''`** al posto della forma con ε `thmRpp`, che resta nella libreria), con `Hm_of_isLeast`, `pRate_ge`, `rate_le`:
+
+```lean
+theorem thmRpp_asymp (hRS : RosserSchoenfeld) {g : ℝ} (hg : 0 ≤ g) (hge : 2 * exp (-(g ^ 2 / 6)) < 1) :
+    ∃ C : ℝ, 0 ≤ C ∧
+      (∀ ε : ℝ, 0 < ε → ∃ M₀ : ℕ, ∀ M m : ℕ, M₀ ≤ M →
+        IsLeast {k : ℕ | 1 ≤ k ∧ sig2 M ^ 2 * (k : ℝ) ^ 2 ≤ (8 : ℝ) ^ k} m →
+        (1 - ε) / (6 * log (m * M)) ≤ pRate g C M m ⌊lamM M m / 2⌋₊) ∧
+      ∀ δ : ℝ, 0 < δ → ∃ M₀ : ℕ, ∀ M h m R : ℕ, M₀ ≤ M →
+        IsLeast {k : ℕ | 1 ≤ k ∧ sig2 M ^ 2 * (k : ℝ) ^ 2 ≤ (8 : ℝ) ^ k} m →
+        R = ⌈log (1 / δ) / ((1 - 2 * exp (-(g ^ 2 / 6))) * pRate g C M m ⌊lamM M m / 2⌋₊)⌉₊ →
+        ∀ A : Finset (Fin m), A.card = m / 2 →
+        ∀ (T : (Fin h → Fin M) → (Fin R → ℤ) → ℤ) (K : Fin R → (Fin R → ℤ) → Finset (Fin R)),
+        (∀ j b, j ∉ K j b) →
+        (∑ wG : Fin h → Fin M, ∑ wB : Fin R → Fin m → Fin M,
+            (if condRp m wG (bsum wB) (T wG (bsum wB)) then
+              ∏ j, (1 - sPr ⌊lamM M m / 2⌋₊ A (wB j)
+                (aRp wG (T wG (bsum wB)) (bsum wB) (K j (bsum wB)) j)) else 0)) /
+          ((M : ℝ) ^ h * ((M : ℝ) ^ m) ^ R) ≤ δ
+```
+
 **Lettura.**
 - *Un round.* Sia g ≥ 0. Per ogni ε > 0 esiste m₀ tale che per M ≥ 2, m ≥ m₀, P₀ ≥ 100, |A| = ⌊m/2⌋ e s, u nella finestra: Pr(round riesce | S_E = s) ≥ p/(1 + ε), dove p⁻¹ = (2P₀/λ_m)(1 + 0.72e^{g²/2}m(3ψ + ψ²)) + 6 ln(mM)(1 + 2/λ_m).
 - *R round.* I pesi sono w_G ∈ {1..M}^h e R blocchi di m pesi, tutti uniformi e indipendenti. Il target T può dipendere da w_G e dalle somme dei blocchi; il round j include i blocchi K_j ∌ j, secondo una regola che guarda solo le somme dei blocchi. Allora Pr(|T − S/2| ≤ S_G/2 − RmM e tutti i round falliscono) ≤ (1 − (1 − 2e^{−g²/6})p/(1 + ε))^R.
-- *Parametri.* Sia m con (σ√m)^{4/3} ≤ 2^m ≤ 2(σ√m)^{4/3} (`Hm`, che esiste per M ≥ 4) e P₀ = ⌊λ_m/2⌋. Per M ≥ M₀(g, ε, m₀) si ha m ≥ m₀, P₀ ≥ 100 e p ≥ (1 − ε)/(6 ln(mM)).
-- *Teorema.* Se 2e^{−g²/6} < 1, ε ∈ (0, 1), δ > 0 e R(1 − 2e^{−g²/6})(1 − ε)/((1 + ε)6 ln(mM)) ≥ ln(1/δ), allora per M ≥ M₀ la probabilità che l'evento valga e tutti i round falliscano è ≤ δ.
+- *Con il tasso.* Esiste C(g) ≥ 0 tale che per m ≥ m₀(g), M ≥ 2, P₀ ≥ 100, |A| = ⌊m/2⌋ e s, u nella finestra un round riesce con probabilità ≥ p_rate = [(2P₀/λ_m)(1 + 0.72e^{g²/2}m(3ψ + ψ²)) + 6 ln(mM)(1 + 2/λ_m + C m^{−1/5})]⁻¹(1 − C m^{−1/5}) (`succB_rate`), e la probabilità che l'evento valga e tutti gli R round falliscano è ≤ (1 − (1 − 2e^{−g²/6})p_rate)^R (`thmRpp_rate`).
+- *Parte asintotica (`thmRpp_asymp`, confrontato come `ARCS.theoremR''`).* Sia g ≥ 0 con 2e^{−g²/6} < 1, m il minimo intero ≥ 1 con σ⁴m² ≤ 8^m (cioè 2^m ≥ (σ√m)^{4/3}), P₀ = ⌊λ_m/2⌋. Con la stessa C: (1) per ogni ε > 0 e M ≥ M₀(g, ε), p_rate ≥ (1 − ε)/(6 ln(mM)); (2) per ogni δ > 0, M ≥ M₀ e R = ⌈ln(1/δ)/((1 − 2e^{−g²/6})·p_rate)⌉, la probabilità che |T − S/2| ≤ S_G/2 − RmM e tutti i round falliscano è ≤ δ. La dimostrazione usa (1 − x)^R ≤ e^{−Rx} (`pow_le_delta`).
+- *Forma con ε (nella libreria, non più confrontata).* `succB_unif`, `thmRpp_gen` con p/(1 + ε); `thmRpp` con m in `Hm`, R dato dal bound (1 − ε)/((1 + ε)6 ln(mM)) e M ≥ M₀(g, ε, δ).
 
 ### Differenza
 
 - e^{g²/2} e λ_m (al posto di e^{λ²/2} e ρ_m) sono già nel rev1; lo è anche la caduta dell'ipotesi λ_m ≥ 2P₀ ("Assume P₀ ≥ 100").
-- **p**: in Lean p **non contiene** il termine O(m^{−1/5}) dentro la parentesi, e il fattore (1 + o(1)) è sostituito da 1/(1 + ε) con m ≥ m₀(g, ε), uniformemente in M ≥ 2, P₀ ≥ 100 e nella finestra. Il termine O(m^{−1/5}) va tolto dalla formula di p, oppure dichiarato assorbito dal fattore (1 + ε).
-- **Indipendenza**: "the rounds fail independently" non è enunciato come tale. Lean dimostra la stima risultante sulla probabilità congiunta "evento ∧ tutti i round falliscono" (fattorizzazione condizionale nella dimostrazione, `ThmRp.lean`). Lean ammette inoltre una regola generale K_j di inclusione dei blocchi e un target T dipendente da w_G e dalle somme dei blocchi.
-- **Scelta di m**: il paper prende "the least integer with 2^m ≥ (σ√m)^{4/3}", Lean accetta ogni m con (σ√m)^{4/3} ≤ 2^m ≤ 2(σ√m)^{4/3}. `exists_Hm` mostra che il minimo m ≥ 1 con σ⁴m² ≤ 8^m soddisfa `Hm` (per M ≥ 4). L'asintotica m = (4/3)b + (2/3)log₂ b + O(1) e le relazioni 2^{m/4} ≍ 2^{m/2}/P₀ ≍ (σ√m)^{1/3} **non sono formalizzate**.
-- **Scelta di R**: il paper prende R = ⌈ln(1/δ)/((1 − 2e^{−g²/6})p)⌉ con il p effettivo. Lean chiede R·(1 − 2e^{−g²/6})·(1 − ε)/((1 + ε)·6 ln(mM)) ≥ ln(1/δ), cioè usa il bound inferiore su p e un fattore (1 + ε)/(1 − ε) in più.
-- **Ipotesi aggiuntive in `thmRpp`**: 2e^{−g²/6} < 1 (vero per g = 3, falso per g piccolo), ε ∈ (0, 1), M ≥ M₀(g, ε, δ). Il paper dice "fix g (say g = 3)" senza la condizione.
+- **p**: **allineato al rev1 attuale.** Il paper scrive ora p = […]^{−1}(1 − O(m^{−1/5})), con O(m^{−1/5}) anche dentro la parentesi, ed E N = λ_m(1 + O(m^{−1/5})) nella dimostrazione. È la forma con il tasso di Lean (`succB_rate`, `thmRpp_rate`, confrontato come `ARCS.theoremR''_rate`): esiste C(g) ≥ 0 tale che per m ≥ m₀(g), uniformemente in M ≥ 2, P₀ ≥ 100 e nella finestra, un round riesce con probabilità ≥ p_rate = [(2P₀/λ_m)(1 + 0.72e^{g²/2}m(3ψ + ψ²)) + 6 ln(mM)(1 + 2/λ_m + C m^{−1/5})]⁻¹(1 − C m^{−1/5}), e la probabilità che l'evento valga e tutti gli R round falliscano è ≤ (1 − (1 − 2e^{−g²/6})p_rate)^R. Lean rende i due O(m^{−1/5}) con la stessa costante C. La dimostrazione usa B(1), B(2) e V con il tasso (`lemmaB1_rate`, `lemmaB2_rate`, `lemmaV_rate`), come il paper. La forma con ε (`succB_unif`, `thmRpp_gen`: p senza O(m^{−1/5}) e fattore 1/(1 + ε), m ≥ m₀(g, ε)) resta nella libreria; la parte asintotica confrontata (`ARCS.theoremR''` = `thmRpp_asymp`) è costruita sulla forma con il tasso.
+- **Indipendenza**: "the rounds fail independently" non è enunciato come tale. Lean dimostra la stima risultante sulla probabilità congiunta "evento ∧ tutti i round falliscono", che è ora anche la forma del paper ("the probability that |T − S/2| ≤ S_G/2 − RmM and the algorithm fails") (fattorizzazione condizionale nella dimostrazione, `ThmRp.lean`). Lean ammette inoltre una regola generale K_j di inclusione dei blocchi e un target T dipendente da w_G e dalle somme dei blocchi.
+- **Scelta di m**: **allineato al rev1 attuale.** `ARCS.theoremR''` prende il minimo intero m ≥ 1 con 2^m ≥ (σ√m)^{4/3}, scritto senza radici come σ⁴m² ≤ 8^m (`IsLeast`); `Hm_of_isLeast` dà anche 2^m ≤ 2(σ√m)^{4/3}, come il paper ("by minimality"). Il paper dice ora "the least positive integer", come Lean (m ≥ 1). L'asintotica m = (4/3)b + (2/3)log₂ b + O(1) e le relazioni 2^{m/4} ≍ 2^{m/2}/P₀ ≍ (σ√m)^{1/3} non sono formalizzate: servono solo al costo.
+- **Scelta di R**: **allineato al rev1 attuale.** R = ⌈ln(1/δ)/((1 − 2e^{−g²/6})·p_rate)⌉ con p_rate effettivo, come il paper. La forma con ε (`thmRpp`) chiedeva invece R·(1 − 2e^{−g²/6})(1 − ε)/((1 + ε)6 ln(mM)) ≥ ln(1/δ).
+- **Ipotesi**: **allineato al rev1 attuale.** g ≥ 0 con 2e^{−g²/6} < 1 (say g = 3), come il paper. "For M large" diventa M ≥ M₀ (per M₀ si ha P₀ ≥ 100 e m ≥ m₀(g)); p_rate ≥ (1 − o(1))/(6 ln(mM)) è letto come "per ogni ε > 0, per M ≥ M₀(g, ε)". `thmRpp_rate` non chiede 2e^{−g²/6} < 1.
 - **"provided n ≥ |G| + Rm"**: in Lean n = h + Rm per costruzione (i pesi sono G più i blocchi).
 - **Costo e tempo** (O(m·2^{m/4} + m·2^{m/2}/P₀) per round, O(log(1/δ)·log(nM)·(n log n + M^{1/3}poly(b))), 2^{b/3+o(b)}): **non formalizzati**.
 - Ipotesi: Rosser–Schoenfeld (Lemma K) soltanto.
 
 **Wording suggerito.**
-> **Theorem R″.** […] Assume P₀ ≥ 100 and fix g ≥ 0. For every ε > 0 there is m₀(g, ε) such that for M ≥ 2, m ≥ m₀ and every s, u in the window, a round succeeds, given S_E = s, with probability at least p/(1 + ε), where
-> p = [(2P₀/λ_m)(1 + 0.72 e^{g²/2} m(3ψ + ψ²)) + 6 ln(mM)(1 + 2/λ_m)]^{−1}.
-> Consequently the probability that |T − S/2| ≤ S_G/2 − RmM and all R rounds fail is at most (1 − (1 − 2e^{−g²/6}) p/(1 + ε))^R.
-> Now let 2e^{−g²/6} < 1 (e.g. g = 3), ε ∈ (0, 1), choose m with (σ√m)^{4/3} ≤ 2^m ≤ 2(σ√m)^{4/3} (the least m with 2^m ≥ (σ√m)^{4/3} qualifies) and P₀ = ⌊λ_m/2⌋. For M ≥ M₀(g, ε): P₀ ≥ 100 and p ≥ (1 − ε)/(6 ln(mM)); and if R(1 − 2e^{−g²/6})(1 − ε)/((1 + ε)·6 ln(mM)) ≥ ln(1/δ), the algorithm fails with probability at most δ. [Cost and running time: informal, not part of the formalized statement.]
+Nessuno: il Teorema R″ del rev1 attuale (p con O(m^{−1/5}) e fattore 1 − O(m^{−1/5}); m minimo, P₀ = ⌊λ_m/2⌋, R = ⌈ln(1/δ)/((1 − 2e^{−g²/6})·p)⌉) corrisponde a `ARCS.theoremR''_rate` e `ARCS.theoremR''`, con O(m^{−1/5}) letto come C(g) m^{−1/5}, o(1) come ε con M ≥ M₀(g, ε) e "M large" come M ≥ M₀. Costo e tempo di esecuzione restano non formalizzati.
 
 ---
 
@@ -781,7 +825,7 @@ Per M **fissato**, con [BR, §22] come ipotesi (`BR22`), le stime valgono con il
 - **(2), (3)**: il rev1 afferma il tasso **O(m^{−1/5})** (cioè m^{−1/2+3η} con η = 1/10); la versione precedente afferma **O(m^{−1/2+3η}) per ogni η ∈ (0, 1/6)**. Lean dimostra la forma o(1) (`lemmaB2_unif`, `lemmaB3_unif`) e, dal 2 nov 2026, **il tasso O(m^{−1/5}) uniforme in M ≥ 2** (`lemmaB2_rate`, `lemmaB3_rate`, `Uniform/LemmaB2.lean`, via `Phi2_le_rate`): esiste C(g) ≥ 0 tale che per m ≥ m₀(g) E[Z(u)² | S_E = s] ≤ λ + λ·1[u = 0] + λ²(1 + C m^{−1/5}) e Pr(Z(u) = 0 | S_E = s) ≤ 2/λ + C m^{−1/5}. Il rev1 è quindi coperto per (2) e (3); la forma "per ogni η ∈ (0, 1/6)" della versione precedente no. Dal 3 nov 2026 anche (1) ha il tasso: `lemmaB1_rate` (|λ/λ_m − 1| ≤ C(g) m^{−1/5}), e il Teorema R ha la forma con il tasso, `thmR_rate` (2/λ* + C m^{−1/5} + 2e^{−g²/6}).
 - **Tasso per M fissato**: per M fissato, Lean dà il tasso O_{M,g}(m^{−1/2}), ma con ipotesi [BR, §22] e senza i termini λ + λ·1[u = 0]. Lì il bound su Pr(Z = 0) è K/√m, non 2/λ + O(·).
 - **g**: paper g > 0, Lean g ≥ 0. "Set η = 1/10" diventa superfluo nell'enunciato se si passa alla forma o(1).
-- **Conseguenze nel paper**: il termine O(m^{−1/5}) compare anche nella p del Teorema R″ (voce 9) e nella sua dimostrazione ("6 ln(mM)·O(m^{−1/5}) = o(ln mM)"). In Lean è sostituito dal fattore (1 + ε).
+- **Conseguenze nel paper**: il termine O(m^{−1/5}) compare anche nella p del Teorema R″ (voce 9) e nella sua dimostrazione ("6 ln(mM)·O(m^{−1/5}) = o(ln mM)"). In Lean è sostituito dal fattore (1 + ε) nella forma con ε, ed è esplicito (C m^{−1/5}) nella forma con il tasso `thmRpp_rate` (voce 9).
 
 **Wording suggerito.**
 > Fix g ≥ 0. For every ε > 0 there is m₀(g, ε) such that, for all M ≥ 2, m ≥ m₀, s with |s − mμ| ≤ gσ√m and u with |u| ≤ M, u ≡ s (mod 2):

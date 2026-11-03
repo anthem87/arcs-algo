@@ -533,11 +533,12 @@ theorem remark_lobe_gap (hSW : SiegelWalfisz) {B : ℝ} (hB : 0 < B) {q : ℕ} (
     _ ≤ Real.exp (-γ * P) * G := mul_le_mul_of_nonneg_left hGe (Real.exp_pos _).le
 
 /-- **Theorem E (3): `ℓ*_q = ℓ_q` off the emerging moduli.** For `q ≥ 3`, `q ∉ 𝔈` and a first local
-minimum `X_q` of `A_q`, the lobe exponent of Theorem E(3), `ℓ*_q = max(0, sup_{X ≥ 1/(2q)} A_q(X)/φ(q))`,
+minimum `X_q` of `A_q`, the lobe exponent of Theorem E(3), `ℓ*_q = sup_{X ≥ 1/(2q)} A_q(X)/φ(q)`,
 equals `ℓ_q = sup_{X ≥ X_q} A_q(X)/φ(q)`: here `A_q(1/(2q)) ≤ h_q(0) = 0` and `ℓ_q ≥ 0`. -/
 theorem ellE_eq_ellq {q : ℕ} (h3 : 3 ≤ q) (hne : ¬ emerging q) {Xq : ℝ} (hX : firstLocalMin q Xq) :
-    ellE q = ellq q Xq := by
+    ellq q (1 / (2 * q)) = ellq q Xq := by
   have hq0 : 0 < q := by omega
+  rw [← ellE_eq hq0]
   have hq' : (0 : ℝ) < q := by exact_mod_cast hq0
   have hpos : 0 ≤ ellq q Xq := ellq_nonneg hq0 hX.1
   have hφ : (0 : ℝ) < q.totient := by exact_mod_cast Nat.totient_pos.mpr hq0

@@ -363,7 +363,7 @@ def chainCs : List (Constraint (Fin 3) (Fin 4)) :=
 /-- The domains `D(x₁) = {1}`, `D(x_i) = {i − 1, i}`. -/
 def chainW : Dom (Fin 3) (Fin 4) := fun i => if i = 0 then {1} else if i = 1 then {1, 2} else {2, 3}
 
-/-- **Remark 7.5 (a bound of [SC] that fails)** (paper §7.3), for `k = 3`: at `W₀` the only
+/-- **Remark 7.5 (a natural bound that fails)** (paper §7.3), for `k = 3`: at `W₀` the only
 unsupported value is one of the two values of `x₂` in the constraint `x₁ ≠ x₂` (so
 `Σ_c υ(c, W₀)·d = (1/2)·2 = 1`), but in the worst order `k − 1 = 2` rounds are needed: the second
 round still changes the domains, the third does not. -/

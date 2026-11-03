@@ -51,6 +51,7 @@ public import ArcsAlgo.Uniform.LemV2
 public import ArcsAlgo.Uniform.RppRound
 public import ArcsAlgo.Uniform.RppRounds
 public import ArcsAlgo.Uniform.RppAsymp
+public import ArcsAlgo.Uniform.RppRate
 public import ArcsAlgo.ArcCore
 public import ArcsAlgo.LemmaP
 public import ArcsAlgo.Clausen

@@ -562,25 +562,45 @@ def aRp {h M r : ℕ} (wG : Fin h → Fin M) (T : ℤ) (b : Fin r → ℤ) (K : 
 end ARCS.LLT
 end
 section
-open Finset Real Filter Topology
+open Finset Real
 namespace ARCS.LLT
 open ARCS ARCS.PrimeK
-/-- The block size of Theorem R″: `(σ√m)^{4/3} ≤ 2^m ≤ 2(σ√m)^{4/3}`, written without roots as `σ⁴m² ≤ 8^m ≤ 8σ⁴m²`; the least `m ≥ 1` with `2^m ≥ … -/
-def Hm (M m : ℕ) : Prop :=
-  sig2 M ^ 2 * (m : ℝ) ^ 2 ≤ (8 : ℝ) ^ m ∧ (8 : ℝ) ^ m ≤ 8 * sig2 M ^ 2 * (m : ℝ) ^ 2
-/-- Theorem R″ (filtered endgame), with Rosser–Schoenfeld as hypothesis. -/
-theorem _root_.ARCS.theoremR'' (hRS : RosserSchoenfeld) {g : ℝ} (hg : 0 ≤ g) (hge : 2 * exp (-(g ^ 2 / 6)) < 1) {ε : ℝ} (hε0 : 0 < ε) (hε1 : ε < 1)
-    {δ : ℝ} (hδ : 0 < δ) :
-    ∃ M₀ : ℕ, ∀ M h m R : ℕ, M₀ ≤ M → 1 ≤ m → Hm M m → ∀ A : Finset (Fin m), A.card = m / 2 →
-      log (1 / δ) ≤ (1 - 2 * exp (-(g ^ 2 / 6))) * ((1 - ε) / (1 + ε) / (6 * log (m * M))) * R →
+/-- `p_rate` of Theorem R″ (paper §6.7), `r = m^{−1/5}`, `ψ = 2^{m/2}/M`: `p_rate = [(2P₀/λ_m)(1 + 0.72 e^{g²/2} m(3ψ + ψ²)) + 6 ln(mM)(1 + 2/λ_m + C … -/
+noncomputable def pRate (g C : ℝ) (M m P₀ : ℕ) : ℝ :=
+  (2 * P₀ / lamM M m * (1 + 0.72 * exp (g ^ 2 / 2) * m *
+      (3 * (√((2 : ℝ) ^ m) / M) + (√((2 : ℝ) ^ m) / M) ^ 2)) +
+    6 * log (m * M) * (1 + 2 / lamM M m + C * (m : ℝ) ^ (-(1 / 5 : ℝ))))⁻¹ *
+    (1 - C * (m : ℝ) ^ (-(1 / 5 : ℝ)))
+/-- Theorem R″ with the rate: each round succeeds with probability `≥ p_rate`, `p_rate = [(2P₀/λ_m)(1 + 0.72 e^{g²/2} m(3ψ + ψ²)) + 6 ln(mM)(1 + 2/λ_m + C m^{−1/5})]⁻¹(1 − C m^{−1/5})`, and `Pr(every round fails) ≤ (1 − (1 − 2e^{−g²/6}) p_rate)^R`. -/
+theorem _root_.ARCS.theoremR''_rate (hRS : RosserSchoenfeld) {g : ℝ} (hg : 0 ≤ g) :
+    ∃ C : ℝ, 0 ≤ C ∧ ∃ m₀ : ℕ, ∀ M h m R P₀ : ℕ, 2 ≤ M → m₀ ≤ m → 100 ≤ P₀ →
+      ∀ A : Finset (Fin m), A.card = m / 2 →
       ∀ (T : (Fin h → Fin M) → (Fin R → ℤ) → ℤ) (K : Fin R → (Fin R → ℤ) → Finset (Fin R)),
       (∀ j b, j ∉ K j b) →
       (∑ wG : Fin h → Fin M, ∑ wB : Fin R → Fin m → Fin M,
           (if condRp m wG (bsum wB) (T wG (bsum wB)) then
-            ∏ j, (1 - sPr ⌊lamM M m / 2⌋₊ A (wB j)
-              (aRp wG (T wG (bsum wB)) (bsum wB) (K j (bsum wB)) j)) else 0)) /
-        ((M : ℝ) ^ h * ((M : ℝ) ^ m) ^ R) ≤ δ := by
-  with_unfolding_all exact ArcsAlgo.LLT.thmRpp hRS (g := g) hg hge (ε := ε) hε0 hε1 (δ := δ) hδ
+            ∏ j, (1 - sPr P₀ A (wB j) (aRp wG (T wG (bsum wB)) (bsum wB) (K j (bsum wB)) j)) else 0)) /
+        ((M : ℝ) ^ h * ((M : ℝ) ^ m) ^ R) ≤
+        (1 - (1 - 2 * exp (-(g ^ 2 / 6))) * pRate g C M m P₀) ^ R := by
+  with_unfolding_all exact ArcsAlgo.LLT.thmRpp_rate hRS (g := g) hg
+/-- Theorem R″ (paper §6.7): with m the least integer ≥ 1 with `2^m ≥ (σ√m)^{4/3}`, `P₀ = ⌊λ_m/2⌋` and `R = ⌈ln(1/δ)/((1 − 2e^{−g²/6})·p_rate)⌉` rounds, the probability that `|T − S/2| ≤ S_G/2 − RmM` and every round fails is `≤ δ` for `M` large; and `p_rate ≥ (1 − o(1))/(6 ln(mM))` as `M → ∞`. -/
+theorem _root_.ARCS.theoremR'' (hRS : RosserSchoenfeld) {g : ℝ} (hg : 0 ≤ g) (hge : 2 * exp (-(g ^ 2 / 6)) < 1) :
+    ∃ C : ℝ, 0 ≤ C ∧
+      (∀ ε : ℝ, 0 < ε → ∃ M₀ : ℕ, ∀ M m : ℕ, M₀ ≤ M →
+        IsLeast {k : ℕ | 1 ≤ k ∧ sig2 M ^ 2 * (k : ℝ) ^ 2 ≤ (8 : ℝ) ^ k} m →
+        (1 - ε) / (6 * log (m * M)) ≤ pRate g C M m ⌊lamM M m / 2⌋₊) ∧
+      ∀ δ : ℝ, 0 < δ → ∃ M₀ : ℕ, ∀ M h m R : ℕ, M₀ ≤ M →
+        IsLeast {k : ℕ | 1 ≤ k ∧ sig2 M ^ 2 * (k : ℝ) ^ 2 ≤ (8 : ℝ) ^ k} m →
+        R = ⌈log (1 / δ) / ((1 - 2 * exp (-(g ^ 2 / 6))) * pRate g C M m ⌊lamM M m / 2⌋₊)⌉₊ →
+        ∀ A : Finset (Fin m), A.card = m / 2 →
+        ∀ (T : (Fin h → Fin M) → (Fin R → ℤ) → ℤ) (K : Fin R → (Fin R → ℤ) → Finset (Fin R)),
+        (∀ j b, j ∉ K j b) →
+        (∑ wG : Fin h → Fin M, ∑ wB : Fin R → Fin m → Fin M,
+            (if condRp m wG (bsum wB) (T wG (bsum wB)) then
+              ∏ j, (1 - sPr ⌊lamM M m / 2⌋₊ A (wB j)
+                (aRp wG (T wG (bsum wB)) (bsum wB) (K j (bsum wB)) j)) else 0)) /
+          ((M : ℝ) ^ h * ((M : ℝ) ^ m) ^ R) ≤ δ := by
+  with_unfolding_all exact ArcsAlgo.LLT.thmRpp_asymp hRS (g := g) hg hge
 end ARCS.LLT
 end
 section
@@ -664,8 +684,6 @@ noncomputable def PP (B : ℝ) (N : ℕ) : ℝ := Real.log N ^ B
 /-- `R_{a/q}(T) = ∫_{𝔐(a/q)} F_N(e(θ)) e(−Tθ) dθ`, `𝔐(a/q) = {|θ − a/q| ≤ 𝔓/(qN)}`. -/
 noncomputable def Rarc (B : ℝ) (N q a : ℕ) (T : ℝ) : ℂ :=
   ∫ θ in ((a : ℝ) / q - PP B N / (q * N))..((a : ℝ) / q + PP B N / (q * N)), FW (WN N) θ * ee (-(T * θ))
-/-- The lobe exponent `max(0, sup_{X ≥ 1/(2q)} A_q(X)/φ(q))`. -/
-noncomputable def ellE (q : ℕ) : ℝ := max 0 (ellq q (1 / (2 * q)))
 end ARCS.Core
 end
 section
@@ -849,7 +867,8 @@ theorem _root_.ARCS.theoremE (hSW : SiegelWalfisz) (hVV : VinogradovVaughan) (hJ
                 4 * Real.exp (-((N : ℝ) ^ (2 * ε)) / (512 * Real.log N))) +
             2 * (2 ^ (WN N).card * Real.exp ((-Real.log 2 + ellq q (1 / (2 * q)) + δ) * Nat.primeCounting N)))) ∧
       (∀ q a : ℕ, 3 ≤ q → (q : ℝ) ≤ PP B N → a.Coprime q → ¬ emerging q → ∀ T : ℝ,
-        ‖Rarc B N q a T‖ ≤ 2 ^ (WN N).card * Real.exp ((-Real.log 2 + ellE q + δ) * Nat.primeCounting N)) := by
+        ‖Rarc B N q a T‖ ≤
+          2 ^ (WN N).card * Real.exp ((-Real.log 2 + ellq q (1 / (2 * q)) + δ) * Nat.primeCounting N)) := by
   with_unfolding_all exact ArcsAlgo.Core.thmE hSW hVV hJ (B := B) hB (ε := ε) hε0 hε (δ := δ) hδ
 end ARCS.Core
 end
@@ -861,9 +880,9 @@ open ARCS.Edge ARCS.Classical
 /-- `X_q` is a first local minimum of `A_q`: a local minimum with none in `(0, X_q)`. -/
 def firstLocalMin (q : ℕ) (X : ℝ) : Prop :=
   0 < X ∧ IsLocalMin (Aq q) X ∧ ∀ y ∈ Set.Ioo 0 X, ¬ IsLocalMin (Aq q) y
-/-- Theorem E(3): for `q ∉ 𝔈`, the exponent `ellE q` used in `theoremE` equals `ℓ_q`. -/
+/-- Theorem E(3): for `q ∉ 𝔈` and a first local minimum `X_q` of `A_q`, the exponent `ℓ*_q = sup_{X ≥ 1/(2q)} A_q(X)/φ(q)` used in `theoremE` equals `ℓ_q = sup_{X ≥ X_q} A_q(X)/φ(q)`. -/
 theorem _root_.ARCS.theoremE_lobe_exponent {q : ℕ} (h3 : 3 ≤ q) (hne : ¬ emerging q) {Xq : ℝ} (hX : firstLocalMin q Xq) :
-    ellE q = ellq q Xq := by
+    ellq q (1 / (2 * q)) = ellq q Xq := by
   with_unfolding_all exact ArcsAlgo.Core.ellE_eq_ellq (q := q) h3 hne (Xq := Xq) hX
 end ARCS.Core
 end

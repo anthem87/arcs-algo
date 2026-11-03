@@ -11,7 +11,8 @@ set_option autoImplicit false
 * `Rarc_split`: `R_{a/q}` is the sum of the lobes, the shoulders and the core.
 * `thmE2`: Theorem E(2) for both cases of `𝒱(a/q)`, from `thmE2_core`, `thmE2_vanish`, `thmE2_shoulder`,
   `thmE2_lobes`; the lobe exponent is `ℓ*_q = sup_{X≥1/(2q)} A_q(X)/φ(q)`.
-* `thmE`: Theorem E, parts (1), (2), (3) with a common `N₀`, for every `B > 40`.
+* `thmE`: Theorem E, parts (1), (2), (3) with a common `N₀`, for every `B > 40`; the lobe exponent
+  is `ℓ*_q = sup_{X ≥ 1/(2q)} A_q(X)/φ(q)` (`ellq q (1/(2q))`) in (2) and (3), as in the paper.
 
 Hypotheses: Siegel–Walfisz; Vinogradov–Vaughan and Jackson for (1).
 -/
@@ -154,11 +155,14 @@ theorem thmE (hSW : SiegelWalfisz) (hVV : VinogradovVaughan) (hJ : JacksonThm) {
                 4 * Real.exp (-((N : ℝ) ^ (2 * ε)) / (512 * Real.log N))) +
             2 * (2 ^ (WN N).card * Real.exp ((-Real.log 2 + ellq q (1 / (2 * q)) + δ) * Nat.primeCounting N)))) ∧
       (∀ q a : ℕ, 3 ≤ q → (q : ℝ) ≤ PP B N → a.Coprime q → ¬ emerging q → ∀ T : ℝ,
-        ‖Rarc B N q a T‖ ≤ 2 ^ (WN N).card * Real.exp ((-Real.log 2 + ellE q + δ) * Nat.primeCounting N)) := by
+        ‖Rarc B N q a T‖ ≤
+          2 ^ (WN N).card * Real.exp ((-Real.log 2 + ellq q (1 / (2 * q)) + δ) * Nat.primeCounting N)) := by
   have hB0 : (0 : ℝ) < B := by linarith
   obtain ⟨N₁, h1⟩ := thmE1_B40 hSW hVV hJ hB hδ
   obtain ⟨N₂, h2⟩ := thmE2 hSW hB0 hε0 hε hδ
   obtain ⟨N₃, h3⟩ := thmE3 hSW hB0 hδ
-  exact ⟨N₁ + N₂ + N₃, fun N hN => ⟨h1 N (by omega), h2 N (by omega), h3 N (by omega)⟩⟩
+  refine ⟨N₁ + N₂ + N₃, fun N hN => ⟨h1 N (by omega), h2 N (by omega), fun q a hq hP ha hne T => ?_⟩⟩
+  have h := h3 N (by omega) q a hq hP ha hne T
+  rwa [ellE_eq (by omega : 0 < q)] at h
 
 end ArcsAlgo.Core
