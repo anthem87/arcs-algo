@@ -13,6 +13,6 @@ results_dev*.json
 *.mp4
 for_design/
 
-# Palomar credentials (never commit)
+# local credentials (never commit)
 .palomar/
 *.token

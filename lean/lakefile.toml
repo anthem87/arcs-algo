@@ -1,5 +1,5 @@
 name = "ArcsAlgo"
-defaultTargets = ["ArcsAlgo", "verify_bench", "Solution"]
+defaultTargets = ["ArcsAlgo", "verify_bench", "MainTheorems"]
 
 [[require]]
 name = "mathlib"
@@ -14,5 +14,5 @@ name = "verify_bench"
 root = "Main"
 
 [[lean_lib]]
-name = "Solution"
-roots = ["Solution"]
+name = "MainTheorems"
+roots = ["MainTheorems"]

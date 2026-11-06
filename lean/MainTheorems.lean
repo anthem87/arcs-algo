@@ -6,11 +6,12 @@ public import ArcsAlgo
 set_option autoImplicit false
 
 /-!
-# Solution
+# Main theorems
 
-The text of `Challenge.lean` (definitions in the namespace `ARCS`, copied from the library
-`ArcsAlgo`), with each proof given by the corresponding theorem of `ArcsAlgo`: the
-`ARCS` definitions are the `ArcsAlgo` ones, so the statements agree by unfolding.
+The index of the paper's main results: each is stated here and proved by the corresponding
+theorem of `ArcsAlgo`. The definitions in the namespace `ARCS` are copied from the library and
+agree with it by unfolding. Cited published theorems and numerical certificates enter as explicit
+`Prop` hypotheses, never as `axiom`.
 -/
 
 set_option maxHeartbeats 4000000

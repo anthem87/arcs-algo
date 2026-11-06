@@ -3,6 +3,10 @@
 Code of the paper *Arcs of Π(1+z^p): prime races, the Gaussian core, Dirichlet L-functions and a certified solver for Subset Sum*
 (A. Mennillo, 2026).
 
+**No `sorry`.** The Lean project builds with no `sorry` and depends only on the standard axioms
+(`propext`, `Classical.choice`, `Quot.sound`). `lean/MainTheorems.lean` states each main result of the
+paper and proves it from the library; from `lean/`: `lake env lean Axioms.lean` prints the axioms of each one.
+
 **ARCS** (Arc-guided, Residue-Certified Search) decides and solves Subset Sum: given positive integers W and a target T it answers
 
 - `("YES", indices)`: a subset of the indices with sum T, always verified;
@@ -35,7 +39,7 @@ Limits: n ≤ 1020 and positive weights.
 | `python/propagation/` | Sections 7–8: constraint propagation and the solver as propagation |
 | `python/figures/` | one script per figure (Figure 5: `python/arcs_theory/arcs_fig.py`); `arcs_trace.py` is a shared helper that records one run of ARCS for `fig_take_skip.py` and `fig_join.py`; output next to the script |
 | `pseudocode/` | `ARCS_pseudocode.md`: ARCS (default) and ARCS-FIXED, CLRS style |
-| `lean/` | Lean 4: the certified answer checker (`checkYes`, `checkNo`, `checkRange`, proved sound; the exhaustive certificate (−3, −3), proved sound and complete) and `verify_bench`, an executable that runs these checkers on every answer of `benchmarks/bench5_v2` and `benchmarks/arcs_rho` (compiled code, outside the kernel: Lean proves the checkers sound, not the individual benchmark runs); the combinatorial and algebraic statements of the paper: Brown's lemma and Proposition 2.3 with Richert's theorem (§2), the Fourier and cumulant identities of Remark 3.1 and Propositions C and C′ (§3), the dummies, the blur identity, Lemma 5.1, Remark 5.2, Lemma 5.3 and the handover known in advance (§5), the centre rule, Corollary C″ and the finite parts of Lemmas B‴, C and J and of Theorem LV (§6), the propagation theory of §7 (Theorems 7.2–7.13, Propositions 7.8–7.10′, with corrected statements where the paper's are false) and Propositions 8.1–8.5 (§8). The analytic results are formalized as well: the arcs and their Edgeworth core (Theorem E, Propositions C, C′ and the Remarks of §3), the lobes (Lemmas L, W, Q, Corollary Q′), the prime races of §4 (Propositions 3, 3₀, Theorem S in general form and at q = 14), the local limit theorems and the second moments of §6 (Lemmas B0′, B with the rate m^{−1/5}, B‴, V, Proposition B′ with the limits of κ, κ_c, γ as M → ∞, Theorems R, R′, R″, LV). Published theorems enter as explicit, cited hypotheses (`def … : Prop`, never `axiom`): `SiegelWalfisz`, `VinogradovVaughan`, `JacksonThm`, `RosserSchoenfeld`, `PNTcons`, `VonKoch`, `BWThm` (Bringmann–Wellnitz) `BR22Edge` ([BR, Theorem 22.1] at every order) and, for Proposition 3, the GRH bound for π(x, χ) [Davenport]; the numerical certificates likewise: `ArbLobes`, `Arb3` (`python/certification/certify_lobes_arb.py`), (R) and `R14` (`certify_L_real_segment.py`), `CubicZero14` (`certify_zero_cubic7.py`) and `LVRhoCert` (`python/random_weights/lv_rate_certified.py`). Not formalized: Proposition B⁗ (a table of exact convolutions, numerical only: not reproducible in the kernel without `native_decide`) and the running times O(…) of Theorems R, R′, R″, Corollary C″ and Theorem 7.2 (analysis on paper). No `sorry`; only the standard axioms. |
+| `lean/` | Lean 4: the certified answer checker (`checkYes`, `checkNo`, `checkRange`, proved sound; the exhaustive certificate (−3, −3), proved sound and complete) and `verify_bench`, an executable that runs these checkers on every answer of `benchmarks/bench5_v2` and `benchmarks/arcs_rho` (compiled code, outside the kernel: Lean proves the checkers sound, not the individual benchmark runs); the combinatorial and algebraic statements of the paper: Brown's lemma and Proposition 2.3 with Richert's theorem (§2), the Fourier and cumulant identities of Remark 3.1 and Propositions C and C′ (§3), the dummies, the blur identity, Lemma 5.1, Remark 5.2, Lemma 5.3 and the handover known in advance (§5), the centre rule, Corollary C″ and the finite parts of Lemmas B‴, C and J and of Theorem LV (§6), the propagation theory of §7 (Theorems 7.2–7.13, Propositions 7.8–7.10′, with corrected statements where the paper's are false) and Propositions 8.1–8.5 (§8). The analytic results are formalized as well: the arcs and their Edgeworth core (Theorem E, Propositions C, C′ and the Remarks of §3), the lobes (Lemmas L, W, Q, Corollary Q′), the prime races of §4 (Propositions 3, 3₀, Theorem S in general form and at q = 14), the local limit theorems and the second moments of §6 (Lemmas B0′, B with the rate m^{−1/5}, B‴, V, Proposition B′ with the limits of κ, κ_c, γ as M → ∞, Theorems R, R′, R″, LV). Published theorems enter as explicit, cited hypotheses (`def … : Prop`, never `axiom`): `SiegelWalfisz`, `VinogradovVaughan`, `JacksonThm`, `RosserSchoenfeld`, `PNTcons`, `VonKoch`, `BWThm` (Bringmann–Wellnitz) `BR22Edge` ([BR, Theorem 22.1] at every order) and, for Proposition 3, the GRH bound for π(x, χ) [Davenport]; the numerical certificates likewise: `ArbLobes`, `Arb3` (`python/certification/certify_lobes_arb.py`), (R) and `R14` (`certify_L_real_segment.py`), `CubicZero14` (`certify_zero_cubic7.py`) and `LVRhoCert` (`python/random_weights/lv_rate_certified.py`). Not formalized: Proposition B⁗ (a table of exact convolutions, numerical only: not reproducible in the kernel without `native_decide`) and the running times O(…) of Theorems R, R′, R″, Corollary C″ and Theorem 7.2 (analysis on paper). `MainTheorems.lean` is the index of the paper's main results, each proved from the library; `Axioms.lean` prints the axioms of each one (only the standard axioms). |
 | `benchmarks/` | preregistered runs (below) |
 
 ## Benchmarks
@@ -93,7 +97,8 @@ pinned in `lean/lake-manifest.json`; do not run `lake update`.
 ```sh
 cd lean
 lake exe cache get        # prebuilt Mathlib for the pinned revision (a few GB)
-lake build                # the library and verify_bench; no sorry, only the standard axioms
+lake build                # the library, verify_bench and MainTheorems
+lake env lean Axioms.lean # the axioms of each main theorem: only the standard three
 lake exe verify_bench ../benchmarks/bench5_v2/results_v2.json ../benchmarks/bench5_v2/results_v2_check.txt
 lake exe verify_bench ../benchmarks/arcs_rho/results_v1.json ../benchmarks/arcs_rho/results_v1_check.txt
 ```
@@ -102,6 +107,11 @@ lake exe verify_bench ../benchmarks/arcs_rho/results_v1.json ../benchmarks/arcs_
 
 The figures are not stored in the repository. Each script in `python/figures/` (and `python/arcs_theory/arcs_fig.py` for
 Figure 5) writes its PNG and PDF next to itself.
+
+## AI use
+
+AI tools were used to assist with computations, the drafting of text and the checking of proofs.
+All results were verified by the author, who takes full responsibility for the content.
 
 ## License
 
